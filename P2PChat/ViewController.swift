@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let lyfecycleLogger = LifecycleLogger()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,32 +16,25 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        lyfecycleLogger.log(with: "ViewController moved to \"Appearing\": \(#function)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        lyfecycleLogger.log(with: "ViewController moved from \"Appearing\" to \"Appeared\": \(#function)")
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        lyfecycleLogger.log(with: "\(#function)")
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        lyfecycleLogger.log(with: "\(#function)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        lyfecycleLogger.log(with: "ViewController moved to \"Disappearing\": \(#function)")
-    }
+        super.viewWillDisappear(animated)    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        lyfecycleLogger.log(with: "ViewController moved from \"Disappearing\" to \"Disappeared\": \(#function)")
     }
 }
 

@@ -12,7 +12,6 @@
 		997E03C823F89FE900506D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 997E03C623F89FE900506D4A /* Main.storyboard */; };
 		997E03CA23F89FEA00506D4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997E03C923F89FEA00506D4A /* Assets.xcassets */; };
 		997E03CD23F89FEA00506D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */; };
-		997E03D523F8B87500506D4A /* LifecycleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E03D423F8B87500506D4A /* LifecycleLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		997E03C923F89FEA00506D4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		997E03CC23F89FEA00506D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		997E03CE23F89FEA00506D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		997E03D423F8B87500506D4A /* LifecycleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +60,6 @@
 				997E03C923F89FEA00506D4A /* Assets.xcassets */,
 				997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */,
 				997E03CE23F89FEA00506D4A /* Info.plist */,
-				997E03D423F8B87500506D4A /* LifecycleLogger.swift */,
 			);
 			path = P2PChat;
 			sourceTree = "<group>";
@@ -138,7 +135,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				997E03D523F8B87500506D4A /* LifecycleLogger.swift in Sources */,
 				997E03C523F89FE900506D4A /* ViewController.swift in Sources */,
 				997E03C123F89FE900506D4A /* AppDelegate.swift in Sources */,
 			);
