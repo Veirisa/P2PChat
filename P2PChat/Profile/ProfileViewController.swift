@@ -18,6 +18,16 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     
     var imagePicker = UIImagePickerController();
     
+    // MARK: Update navigation bar
+    
+    @objc private func closeProfile() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func updateNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(closeProfile))
+    }
+    
     // MARK: Set layout characteristics
     
     private func setLayoutCharacteristics() {
@@ -35,6 +45,7 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateNavigationBar()
         setLayoutCharacteristics()
         imagePicker.delegate = self
     }
@@ -51,8 +62,8 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
             imagePicker.sourceType = .camera
             present(imagePicker, animated: true, completion: nil)
         } else {
-            let cameraExceptionAlert = UIAlertController(title: "Ошибка", message: "Ваше устройство не имеет камеры.", preferredStyle: .alert)
-            cameraExceptionAlert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
+            let cameraExceptionAlert = UIAlertController(title: "Error", message: "Your device does not have a camera.", preferredStyle: .alert)
+            cameraExceptionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             present(cameraExceptionAlert, animated: true, completion: nil)
         }
     }
@@ -68,17 +79,17 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     }
     
     @IBAction func changeAvatar(_ sender: UIButton) {
-        print("Выбери изображение профиля")
+        print("Choose profile image")
         let changeAvatarAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        changeAvatarAlert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
+        changeAvatarAlert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { [weak self] _ in
             changeAvatarAlert.dismiss(animated: true, completion: nil)
             self?.openGallery()
         }))
-        changeAvatarAlert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { [weak self] _ in
+        changeAvatarAlert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
             changeAvatarAlert.dismiss(animated: true, completion: nil)
             self?.openCamera()
         }))
-        changeAvatarAlert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
+        changeAvatarAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(changeAvatarAlert, animated: true, completion: nil)
     }
 }
