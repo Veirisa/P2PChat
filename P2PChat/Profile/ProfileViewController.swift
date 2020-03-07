@@ -18,6 +18,16 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     
     var imagePicker = UIImagePickerController();
     
+    // MARK: Update navigation bar
+    
+    @objc private func closeProfile() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func updateNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(closeProfile))
+    }
+    
     // MARK: Set layout characteristics
     
     private func setLayoutCharacteristics() {
@@ -33,57 +43,28 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     
     // MARK: Lifecycle
     
-    /*
-     * Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value: file
-     * Причина ошибки - на данный момент editButton еще не инициализирована (т. е. является nil),
-     * т. к. storyboard еще не загружен.
-     */
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        // print("Кнопка редактирования - frame (\(#function)): \(editButton.frame)")
-    }
-    
-    /*
-     * K моменту вызова viewDidLoad storyboard был загружен, и мы видим frame,
-     * соответсвующий устройству, выбранному в storyboard (iPhoneSE).
-     */
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateNavigationBar()
+        setLayoutCharacteristics()
         imagePicker.delegate = self
-        print("Кнопка редактирования - frame (\(#function)): \(editButton.frame)")
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setLayoutCharacteristics()
-    }
-    
-    /*
-     * К моменту вызова viewDidAppear уже выполнился layoutSubviews у view, являющегося корневым в
-     * storyboard, в котором frame изменился в соответствии с выбранным симулятором (iPhone 8 Plus).
-     * В момент вызова viewDidLoad этого еще не произошло, поэтому frame отличается.
-     */
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setLayoutCharacteristics()
-        print("Кнопка редактирования - frame (\(#function)): \(editButton.frame)")
     }
     
     // MARK: Change avatar
     
     private func openGallery() {
         imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
-            self.present(imagePicker, animated: true, completion: nil)
+            present(imagePicker, animated: true, completion: nil)
         } else {
-            let cameraExceptionAlert = UIAlertController(title: "Ошибка", message: "Ваше устройство не имеет камеры.", preferredStyle: .alert)
-            cameraExceptionAlert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
-            self.present(cameraExceptionAlert, animated: true, completion: nil)
+            let cameraExceptionAlert = UIAlertController(title: "Error", message: "Your device does not have a camera.", preferredStyle: .alert)
+            cameraExceptionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(cameraExceptionAlert, animated: true, completion: nil)
         }
     }
     
@@ -98,17 +79,17 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     }
     
     @IBAction func changeAvatar(_ sender: UIButton) {
-        print("Выбери изображение профиля")
+        print("Choose profile image")
         let changeAvatarAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        changeAvatarAlert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
+        changeAvatarAlert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { [weak self] _ in
             changeAvatarAlert.dismiss(animated: true, completion: nil)
             self?.openGallery()
         }))
-        changeAvatarAlert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { [weak self] _ in
+        changeAvatarAlert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
             changeAvatarAlert.dismiss(animated: true, completion: nil)
             self?.openCamera()
         }))
-        changeAvatarAlert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
-        self.present(changeAvatarAlert, animated: true, completion: nil)
+        changeAvatarAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(changeAvatarAlert, animated: true, completion: nil)
     }
 }
