@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		990309432413A13400DF6DDA /* ITCompany.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ITCompany.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		99661650240BB08700072082 /* ConversationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConversationList.storyboard; sourceTree = "<group>"; };
 		99661654240BB15400072082 /* Conversation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Conversation.storyboard; sourceTree = "<group>"; };
 		99661656240BB17C00072082 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		997E03BF23F89FE900506D4A /* P2PChat */ = {
 			isa = PBXGroup;
 			children = (
+				990309432413A13400DF6DDA /* ITCompany.playground */,
 				9966164F240BB03600072082 /* ConverstionList */,
 				9966164E240BB01000072082 /* Conversation */,
 				99BCB4E923FF319400316EF7 /* Profile */,
