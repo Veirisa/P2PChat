@@ -1,0 +1,6 @@
+framework module Pods_P2PChat {
+  umbrella header "Pods-P2PChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

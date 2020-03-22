@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e45-2n-Mc0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="MdF-js-UYF">
+            <objects>
+                <navigationController id="e45-2n-Mc0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pmX-kx-ex9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ESP-ax-PFO" kind="relationship" relationship="rootViewController" id="jDI-gG-f5j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teU-Q6-iLZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-657" y="108"/>
+        </scene>
+        <!--Tinkoff Chat-->
+        <scene sceneID="ppb-y2-JJu">
+            <objects>
+                <viewController id="ESP-ax-PFO" customClass="ChannelsViewController" customModule="P2PChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eAp-KX-pQc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HF3-55-L5t">
+                                <rect key="frame" x="0.0" y="88" width="414" height="700"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ESP-ax-PFO" id="9Db-Sy-KCW"/>
+                                    <outlet property="delegate" destination="ESP-ax-PFO" id="QSG-3g-XTd"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ION-mv-JrQ">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8m-kE-cNy" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="788" width="414" height="74"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-Vo-gCd">
+                                        <rect key="frame" x="305" y="20" width="89" height="34"/>
+                                        <state key="normal" title="New channel"/>
+                                        <connections>
+                                            <action selector="addNewChannel:" destination="ESP-ax-PFO" eventType="touchUpInside" id="SWE-pi-u5L"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HyS-pc-ZcN">
+                                        <rect key="frame" x="20" y="20" width="265" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="HyS-pc-ZcN" firstAttribute="top" secondItem="f8m-kE-cNy" secondAttribute="top" constant="20" id="2Kg-B8-Ch1"/>
+                                    <constraint firstItem="HyS-pc-ZcN" firstAttribute="leading" secondItem="f8m-kE-cNy" secondAttribute="leading" constant="20" id="R2u-Q4-1j8"/>
+                                    <constraint firstItem="M0N-Vo-gCd" firstAttribute="top" secondItem="f8m-kE-cNy" secondAttribute="top" constant="20" id="VzJ-eb-WTQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="HyS-pc-ZcN" secondAttribute="bottom" constant="20" id="a8L-iS-wQb"/>
+                                    <constraint firstAttribute="trailing" secondItem="M0N-Vo-gCd" secondAttribute="trailing" constant="20" id="joC-Ce-aIq"/>
+                                    <constraint firstAttribute="bottom" secondItem="M0N-Vo-gCd" secondAttribute="bottom" constant="20" id="kbF-RT-AUX"/>
+                                    <constraint firstItem="M0N-Vo-gCd" firstAttribute="leading" secondItem="HyS-pc-ZcN" secondAttribute="trailing" constant="20" id="yge-la-MAm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ION-mv-JrQ" firstAttribute="centerX" secondItem="eAp-KX-pQc" secondAttribute="centerX" id="ElC-jx-X5R"/>
+                            <constraint firstItem="f8m-kE-cNy" firstAttribute="trailing" secondItem="Vbv-bf-nop" secondAttribute="trailing" id="Gi0-YD-I9E"/>
+                            <constraint firstItem="f8m-kE-cNy" firstAttribute="leading" secondItem="Vbv-bf-nop" secondAttribute="leading" id="PRX-E4-oms"/>
+                            <constraint firstItem="HF3-55-L5t" firstAttribute="trailing" secondItem="Vbv-bf-nop" secondAttribute="trailing" id="Qhs-b1-fLA"/>
+                            <constraint firstItem="HF3-55-L5t" firstAttribute="top" secondItem="Vbv-bf-nop" secondAttribute="top" id="UYO-DD-89l"/>
+                            <constraint firstItem="f8m-kE-cNy" firstAttribute="top" secondItem="HF3-55-L5t" secondAttribute="bottom" id="ZkW-cJ-LlH"/>
+                            <constraint firstItem="HF3-55-L5t" firstAttribute="leading" secondItem="Vbv-bf-nop" secondAttribute="leading" id="dc9-ey-psc"/>
+                            <constraint firstItem="f8m-kE-cNy" firstAttribute="bottom" secondItem="Vbv-bf-nop" secondAttribute="bottom" id="ogc-R8-Nay"/>
+                            <constraint firstItem="ION-mv-JrQ" firstAttribute="centerY" secondItem="eAp-KX-pQc" secondAttribute="centerY" id="rEg-kJ-GEY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vbv-bf-nop"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tinkoff Chat" id="IjZ-d9-tHg"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ION-mv-JrQ" id="Cft-78-TNH"/>
+                        <outlet property="channelsTableView" destination="HF3-55-L5t" id="kwm-ZN-ZZq"/>
+                        <outlet property="newChannelButton" destination="M0N-Vo-gCd" id="XzT-Xj-ADH"/>
+                        <outlet property="newChannelTextField" destination="HyS-pc-ZcN" id="3Uk-pN-zKr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAp-fZ-q9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256.52173913043481" y="753.34821428571422"/>
+        </scene>
+    </scenes>
+</document>

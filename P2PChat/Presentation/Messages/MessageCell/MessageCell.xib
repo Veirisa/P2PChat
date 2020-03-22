@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="KGk-i7-Jjw" customClass="MessageCell" customModule="P2PChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d93-vM-AgG">
+                        <rect key="frame" x="20" y="10" width="97" height="65"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-GJ-7ad">
+                                <rect key="frame" x="10" y="10" width="40" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rn7-0x-FAN">
+                                <rect key="frame" x="10" y="32" width="77" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUk-Q5-jPL">
+                                <rect key="frame" x="60" y="11" width="27" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RUk-Q5-jPL" firstAttribute="centerY" secondItem="eKF-GJ-7ad" secondAttribute="centerY" id="2MH-Jc-WUt"/>
+                            <constraint firstItem="rn7-0x-FAN" firstAttribute="leading" secondItem="d93-vM-AgG" secondAttribute="leading" constant="10" id="2R3-Tx-69s"/>
+                            <constraint firstItem="RUk-Q5-jPL" firstAttribute="leading" secondItem="eKF-GJ-7ad" secondAttribute="trailing" constant="10" id="6AW-Zq-dcg"/>
+                            <constraint firstAttribute="trailing" secondItem="rn7-0x-FAN" secondAttribute="trailing" constant="10" id="KaP-VS-CIu"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RUk-Q5-jPL" secondAttribute="bottom" constant="10" id="QTB-dY-3gB"/>
+                            <constraint firstAttribute="trailing" secondItem="RUk-Q5-jPL" secondAttribute="trailing" constant="10" id="V8O-fZ-DN1"/>
+                            <constraint firstItem="rn7-0x-FAN" firstAttribute="top" secondItem="eKF-GJ-7ad" secondAttribute="bottom" constant="5" id="fGS-vp-Alf"/>
+                            <constraint firstItem="eKF-GJ-7ad" firstAttribute="top" secondItem="d93-vM-AgG" secondAttribute="top" constant="10" id="h9s-gQ-DDl"/>
+                            <constraint firstItem="eKF-GJ-7ad" firstAttribute="leading" secondItem="d93-vM-AgG" secondAttribute="leading" constant="10" id="iHs-Jg-2I1"/>
+                            <constraint firstAttribute="bottom" secondItem="rn7-0x-FAN" secondAttribute="bottom" constant="10" id="lZL-vk-sna"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="d93-vM-AgG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JI7-b8-xTp"/>
+                    <constraint firstItem="d93-vM-AgG" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="LZG-E1-O6V"/>
+                    <constraint firstItem="d93-vM-AgG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ulc-eV-zZo"/>
+                    <constraint firstAttribute="bottom" secondItem="d93-vM-AgG" secondAttribute="bottom" constant="10" id="yx8-jj-mJe"/>
+                    <constraint firstAttribute="trailing" secondItem="d93-vM-AgG" secondAttribute="trailing" constant="20" id="zny-qU-v4Q"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="zny-qU-v4Q"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="RUk-Q5-jPL" id="Xtt-jp-do3"/>
+                <outlet property="leadingMessageViewConstraint" destination="JI7-b8-xTp" id="EBd-f7-QS2"/>
+                <outlet property="messageLabel" destination="rn7-0x-FAN" id="WfR-GE-RLi"/>
+                <outlet property="messageView" destination="d93-vM-AgG" id="gjw-ag-b7G"/>
+                <outlet property="senderLabel" destination="eKF-GJ-7ad" id="Old-LF-sgg"/>
+                <outlet property="trailingMessageViewConstraint" destination="zny-qU-v4Q" id="Waf-Od-E6Z"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="110.15625"/>
+        </tableViewCell>
+    </objects>
+</document>
