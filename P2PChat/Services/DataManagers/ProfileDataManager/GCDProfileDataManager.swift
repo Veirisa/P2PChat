@@ -17,7 +17,7 @@ class GCDProfileDataManager: ProfileDataManager {
     let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
     let fullNameFileName = "fullName.txt"
     let descriptionFileName = "description.txt"
-    let avatarFile = "avatar.png"
+    let avatarFileName = "avatar.png"
     
     // MARK: Reading
     
@@ -39,24 +39,23 @@ class GCDProfileDataManager: ProfileDataManager {
         return nil
     }
     
-    func readFullName() {
-        globalQueue.async {
-            let fullName = self.readTextData(fileName: "fullName.txt")
-            self.delegate?.didReadData(fullName: fullName)
-        }
-    }
-    
-    func readDescription() {
-        globalQueue.async {
-            let description = self.readTextData(fileName: "description.txt")
-            self.delegate?.didReadData(description: description)
-        }
-    }
-    
-    func readImage() {
-        globalQueue.async {
-            let avatar = self.readImageData(fileName: "avatar.png")
-            self.delegate?.didReadData(avatar: avatar)
+    func readProfile() {
+        globalQueue.async {[weak self] in
+            guard let self = self else { return }
+            let profile = ProfileModel.shared
+            let fullName = self.readTextData(fileName: self.fullNameFileName)
+            if let fullName = fullName {
+                profile.fullName = fullName
+            }
+            let description = self.readTextData(fileName: self.descriptionFileName)
+            if let description = description {
+                profile.description = description
+            }
+            let avatar = self.readImageData(fileName: self.avatarFileName)
+            if let avatar = avatar {
+                profile.avatar = avatar
+            }
+            self.delegate?.profileDidReaded()
         }
     }
     
@@ -90,24 +89,33 @@ class GCDProfileDataManager: ProfileDataManager {
         return false
     }
     
-    func writeData(fullName: String) {
-        globalQueue.async {
-            let writingStatus = self.writeTextData(fileName: "fullName.txt", text: fullName)
-            self.delegate?.didWriteData(fullName: fullName, status: writingStatus)
-        }
-    }
-    
-    func writeData(description: String) {
-        globalQueue.async {
-            let writingStatus = self.writeTextData(fileName: "description.txt", text: description)
-            self.delegate?.didWriteData(description: description, status: writingStatus)
-        }
-    }
-    
-    func writeData(avatar: UIImage) {
-        globalQueue.async {
-            let writingStatus = self.writeImageData(fileName: "avatar.png", image: avatar)
-            self.delegate?.didWriteData(avatar: avatar, status: writingStatus)
+    func writeProfile(fullName: String?, description: String?, avatar: UIImage?) {
+        globalQueue.async {[weak self] in
+            guard let self = self else { return }
+            let profile = ProfileModel.shared
+            var fullNameWritingStatus = true
+            if let fullName = fullName {
+                fullNameWritingStatus = self.writeTextData(fileName: self.fullNameFileName, text: fullName)
+                if fullNameWritingStatus {
+                    profile.fullName = fullName
+                }
+            }
+            var descriptionWritingStatus = true
+            if let description = description {
+                descriptionWritingStatus = self.writeTextData(fileName: self.descriptionFileName, text: description)
+                if descriptionWritingStatus {
+                    profile.description = description
+                }
+            }
+            var avatarWritingStatus = true
+            if let avatar = avatar {
+                avatarWritingStatus = self.writeImageData(fileName: self.avatarFileName, image: avatar)
+                if avatarWritingStatus {
+                    profile.avatar = avatar
+                }
+            }
+            let writingStatus = fullNameWritingStatus && descriptionWritingStatus && avatarWritingStatus
+            self.delegate?.profileDidWrited(status: writingStatus)
         }
     }
 }

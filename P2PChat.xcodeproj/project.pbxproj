@@ -3,46 +3,54 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		574535EDF31E38A8A09B3C66 /* Pods_P2PChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */; };
 		995F73AB241E552500F1EC31 /* GCDProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73AA241E552500F1EC31 /* GCDProfileDataManager.swift */; };
-		995F73AD241E554000F1EC31 /* OperationProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73AC241E554000F1EC31 /* OperationProfileDataManager.swift */; };
 		995F73AF241E849600F1EC31 /* ProfileDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73AE241E849600F1EC31 /* ProfileDataManagerDelegate.swift */; };
 		995F73B1241EA08100F1EC31 /* ProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73B0241EA08100F1EC31 /* ProfileDataManager.swift */; };
-		99661651240BB08700072082 /* ConversationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99661650240BB08700072082 /* ConversationList.storyboard */; };
-		99661655240BB15400072082 /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99661654240BB15400072082 /* Conversation.storyboard */; };
-		99661657240BB17C00072082 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99661656240BB17C00072082 /* ConversationViewController.swift */; };
-		99661659240BB1A600072082 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99661658240BB1A600072082 /* ConversationListViewController.swift */; };
-		9966165C240BC82D00072082 /* ConversationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966165B240BC82D00072082 /* ConversationCellModel.swift */; };
-		99661661240BC8AF00072082 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966165F240BC8AF00072082 /* ConversationCell.swift */; };
-		99661662240BC8AF00072082 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99661660240BC8AF00072082 /* ConversationCell.xib */; };
-		99661669240BEEDE00072082 /* MessageCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99661668240BEEDE00072082 /* MessageCellModel.swift */; };
+		99661651240BB08700072082 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99661650240BB08700072082 /* Channels.storyboard */; };
+		99661655240BB15400072082 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99661654240BB15400072082 /* Messages.storyboard */; };
+		99661657240BB17C00072082 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99661656240BB17C00072082 /* MessagesViewController.swift */; };
+		99661659240BB1A600072082 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99661658240BB1A600072082 /* ChannelsViewController.swift */; };
+		99661661240BC8AF00072082 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966165F240BC8AF00072082 /* ChannelCell.swift */; };
+		99661662240BC8AF00072082 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99661660240BC8AF00072082 /* ChannelCell.xib */; };
 		99661674240BF0D600072082 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99661672240BF0D600072082 /* MessageCell.swift */; };
 		99661675240BF0D600072082 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99661673240BF0D600072082 /* MessageCell.xib */; };
 		997E03C123F89FE900506D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E03C023F89FE900506D4A /* AppDelegate.swift */; };
 		997E03CA23F89FEA00506D4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997E03C923F89FEA00506D4A /* Assets.xcassets */; };
 		997E03CD23F89FEA00506D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */; };
 		9991D3D5240C2CD000DF7A9E /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */; };
+		99A6AF91242289AB002E52AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99A6AF90242289AB002E52AB /* GoogleService-Info.plist */; };
 		99BCB4EB23FF31CA00316EF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */; };
 		99BCB4ED23FF31E400316EF7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BCB4EC23FF31E400316EF7 /* Profile.storyboard */; };
+		99D760D324254F6600325677 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760D224254F6600325677 /* ChannelModel.swift */; };
+		99D760D724254F9C00325677 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760D624254F9C00325677 /* MessageModel.swift */; };
+		99D760DC2425823C00325677 /* ChannelsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760DB2425823C00325677 /* ChannelsDataManager.swift */; };
+		99D760DE2425825E00325677 /* ChannelsDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760DD2425825E00325677 /* ChannelsDataManagerDelegate.swift */; };
+		99D760E02425827B00325677 /* FirestoreChannelsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760DF2425827B00325677 /* FirestoreChannelsDataManager.swift */; };
+		99D760E22425831100325677 /* MessagesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760E12425831100325677 /* MessagesDataManager.swift */; };
+		99D760E42425833C00325677 /* MessagesDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760E32425833C00325677 /* MessagesDataManagerDelegate.swift */; };
+		99D760E62425837700325677 /* FirestoreMessagesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760E52425837700325677 /* FirestoreMessagesDataManager.swift */; };
+		99D760E824258D4700325677 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760E724258D4700325677 /* ProfileModel.swift */; };
+		99D760EC242593B400325677 /* SectionOfChannelsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760EB242593B400325677 /* SectionOfChannelsModel.swift */; };
+		99D760EF2427D2A200325677 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760EE2427D2A200325677 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.release.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.release.xcconfig"; sourceTree = "<group>"; };
 		990309432413A13400DF6DDA /* ITCompany.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ITCompany.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		995F73AA241E552500F1EC31 /* GCDProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDProfileDataManager.swift; sourceTree = "<group>"; };
-		995F73AC241E554000F1EC31 /* OperationProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationProfileDataManager.swift; sourceTree = "<group>"; };
 		995F73AE241E849600F1EC31 /* ProfileDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManagerDelegate.swift; sourceTree = "<group>"; };
 		995F73B0241EA08100F1EC31 /* ProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManager.swift; sourceTree = "<group>"; };
-		99661650240BB08700072082 /* ConversationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConversationList.storyboard; sourceTree = "<group>"; };
-		99661654240BB15400072082 /* Conversation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Conversation.storyboard; sourceTree = "<group>"; };
-		99661656240BB17C00072082 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
-		99661658240BB1A600072082 /* ConversationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
-		9966165B240BC82D00072082 /* ConversationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellModel.swift; sourceTree = "<group>"; };
-		9966165F240BC8AF00072082 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
-		99661660240BC8AF00072082 /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
-		99661668240BEEDE00072082 /* MessageCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellModel.swift; sourceTree = "<group>"; };
+		99661650240BB08700072082 /* Channels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channels.storyboard; sourceTree = "<group>"; };
+		99661654240BB15400072082 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		99661656240BB17C00072082 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		99661658240BB1A600072082 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		9966165F240BC8AF00072082 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		99661660240BC8AF00072082 /* ChannelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
 		99661672240BF0D600072082 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		99661673240BF0D600072082 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		997E03BD23F89FE900506D4A /* P2PChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +59,22 @@
 		997E03CC23F89FEA00506D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		997E03CE23F89FEA00506D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
+		99A6AF90242289AB002E52AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		99BCB4EC23FF31E400316EF7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		99D760D224254F6600325677 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
+		99D760D624254F9C00325677 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		99D760DB2425823C00325677 /* ChannelsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManager.swift; sourceTree = "<group>"; };
+		99D760DD2425825E00325677 /* ChannelsDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerDelegate.swift; sourceTree = "<group>"; };
+		99D760DF2425827B00325677 /* FirestoreChannelsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreChannelsDataManager.swift; sourceTree = "<group>"; };
+		99D760E12425831100325677 /* MessagesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManager.swift; sourceTree = "<group>"; };
+		99D760E32425833C00325677 /* MessagesDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerDelegate.swift; sourceTree = "<group>"; };
+		99D760E52425837700325677 /* FirestoreMessagesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessagesDataManager.swift; sourceTree = "<group>"; };
+		99D760E724258D4700325677 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		99D760EB242593B400325677 /* SectionOfChannelsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfChannelsModel.swift; sourceTree = "<group>"; };
+		99D760EE2427D2A200325677 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D63715F66510EB20D619009F /* Pods-P2PChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.debug.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,57 +82,63 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574535EDF31E38A8A09B3C66 /* Pods_P2PChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		995F73A9241E54DE00F1EC31 /* DataManager */ = {
+		2353B9E025620E5F9127166B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		995F73A9241E54DE00F1EC31 /* ProfileDataManager */ = {
 			isa = PBXGroup;
 			children = (
 				995F73AA241E552500F1EC31 /* GCDProfileDataManager.swift */,
-				995F73AC241E554000F1EC31 /* OperationProfileDataManager.swift */,
 				995F73AE241E849600F1EC31 /* ProfileDataManagerDelegate.swift */,
 				995F73B0241EA08100F1EC31 /* ProfileDataManager.swift */,
 			);
-			path = DataManager;
+			path = ProfileDataManager;
 			sourceTree = "<group>";
 		};
-		9966164E240BB01000072082 /* Conversation */ = {
+		9966164E240BB01000072082 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
 				99661663240BEE7D00072082 /* MessageCell */,
-				99661654240BB15400072082 /* Conversation.storyboard */,
-				99661656240BB17C00072082 /* ConversationViewController.swift */,
+				99661654240BB15400072082 /* Messages.storyboard */,
+				99661656240BB17C00072082 /* MessagesViewController.swift */,
 			);
-			path = Conversation;
+			path = Messages;
 			sourceTree = "<group>";
 		};
-		9966164F240BB03600072082 /* ConverstionList */ = {
+		9966164F240BB03600072082 /* Channels */ = {
 			isa = PBXGroup;
 			children = (
-				9966165A240BC7F900072082 /* ConversationCell */,
-				99661650240BB08700072082 /* ConversationList.storyboard */,
-				99661658240BB1A600072082 /* ConversationListViewController.swift */,
+				9966165A240BC7F900072082 /* ChannelCell */,
+				99661650240BB08700072082 /* Channels.storyboard */,
+				99661658240BB1A600072082 /* ChannelsViewController.swift */,
 			);
-			path = ConverstionList;
+			path = Channels;
 			sourceTree = "<group>";
 		};
-		9966165A240BC7F900072082 /* ConversationCell */ = {
+		9966165A240BC7F900072082 /* ChannelCell */ = {
 			isa = PBXGroup;
 			children = (
-				9966165B240BC82D00072082 /* ConversationCellModel.swift */,
-				9966165F240BC8AF00072082 /* ConversationCell.swift */,
-				99661660240BC8AF00072082 /* ConversationCell.xib */,
+				9966165F240BC8AF00072082 /* ChannelCell.swift */,
+				99661660240BC8AF00072082 /* ChannelCell.xib */,
 			);
-			path = ConversationCell;
+			path = ChannelCell;
 			sourceTree = "<group>";
 		};
 		99661663240BEE7D00072082 /* MessageCell */ = {
 			isa = PBXGroup;
 			children = (
-				99661668240BEEDE00072082 /* MessageCellModel.swift */,
 				99661672240BF0D600072082 /* MessageCell.swift */,
 				99661673240BF0D600072082 /* MessageCell.xib */,
 			);
@@ -120,8 +148,11 @@
 		997E03B423F89FE800506D4A = {
 			isa = PBXGroup;
 			children = (
+				99A6AF90242289AB002E52AB /* GoogleService-Info.plist */,
 				997E03BF23F89FE900506D4A /* P2PChat */,
 				997E03BE23F89FE900506D4A /* Products */,
+				A476A722E041DF9AD8CF798D /* Pods */,
+				2353B9E025620E5F9127166B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,15 +167,15 @@
 		997E03BF23F89FE900506D4A /* P2PChat */ = {
 			isa = PBXGroup;
 			children = (
+				99D760CA24254D5800325677 /* Presentation */,
+				99D760C924254D4300325677 /* Services */,
 				990309432413A13400DF6DDA /* ITCompany.playground */,
-				9966164F240BB03600072082 /* ConverstionList */,
-				9966164E240BB01000072082 /* Conversation */,
-				99BCB4E923FF319400316EF7 /* Profile */,
 				997E03C023F89FE900506D4A /* AppDelegate.swift */,
 				997E03C923F89FEA00506D4A /* Assets.xcassets */,
 				997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */,
 				997E03CE23F89FEA00506D4A /* Info.plist */,
 				9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */,
+				99D760EE2427D2A200325677 /* Utils.swift */,
 			);
 			path = P2PChat;
 			sourceTree = "<group>";
@@ -152,11 +183,79 @@
 		99BCB4E923FF319400316EF7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				995F73A9241E54DE00F1EC31 /* DataManager */,
 				99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */,
 				99BCB4EC23FF31E400316EF7 /* Profile.storyboard */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		99D760C924254D4300325677 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				99D760CC24254DED00325677 /* DataManagers */,
+				99D760CB24254DDF00325677 /* Models */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		99D760CA24254D5800325677 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9966164F240BB03600072082 /* Channels */,
+				9966164E240BB01000072082 /* Messages */,
+				99BCB4E923FF319400316EF7 /* Profile */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		99D760CB24254DDF00325677 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				99D760D224254F6600325677 /* ChannelModel.swift */,
+				99D760D624254F9C00325677 /* MessageModel.swift */,
+				99D760E724258D4700325677 /* ProfileModel.swift */,
+				99D760EB242593B400325677 /* SectionOfChannelsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		99D760CC24254DED00325677 /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				99D760DA242581A200325677 /* MessagesDataManager */,
+				99D760CD24254E8B00325677 /* ChannelsDataManager */,
+				995F73A9241E54DE00F1EC31 /* ProfileDataManager */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
+		99D760CD24254E8B00325677 /* ChannelsDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				99D760DB2425823C00325677 /* ChannelsDataManager.swift */,
+				99D760DD2425825E00325677 /* ChannelsDataManagerDelegate.swift */,
+				99D760DF2425827B00325677 /* FirestoreChannelsDataManager.swift */,
+			);
+			path = ChannelsDataManager;
+			sourceTree = "<group>";
+		};
+		99D760DA242581A200325677 /* MessagesDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				99D760E12425831100325677 /* MessagesDataManager.swift */,
+				99D760E32425833C00325677 /* MessagesDataManagerDelegate.swift */,
+				99D760E52425837700325677 /* FirestoreMessagesDataManager.swift */,
+			);
+			path = MessagesDataManager;
+			sourceTree = "<group>";
+		};
+		A476A722E041DF9AD8CF798D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D63715F66510EB20D619009F /* Pods-P2PChat.debug.xcconfig */,
+				0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,9 +265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 997E03D123F89FEA00506D4A /* Build configuration list for PBXNativeTarget "P2PChat" */;
 			buildPhases = (
+				CD7DB9D6A1762825D3E46A9F /* [CP] Check Pods Manifest.lock */,
 				997E03B923F89FE900506D4A /* Sources */,
 				997E03BA23F89FE900506D4A /* Frameworks */,
 				997E03BB23F89FE900506D4A /* Resources */,
+				31C15E177CCCB3E374169D82 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,36 +318,87 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99661651240BB08700072082 /* ConversationList.storyboard in Resources */,
+				99661651240BB08700072082 /* Channels.storyboard in Resources */,
+				99A6AF91242289AB002E52AB /* GoogleService-Info.plist in Resources */,
 				997E03CD23F89FEA00506D4A /* LaunchScreen.storyboard in Resources */,
 				997E03CA23F89FEA00506D4A /* Assets.xcassets in Resources */,
 				99661675240BF0D600072082 /* MessageCell.xib in Resources */,
-				99661655240BB15400072082 /* Conversation.storyboard in Resources */,
-				99661662240BC8AF00072082 /* ConversationCell.xib in Resources */,
+				99661655240BB15400072082 /* Messages.storyboard in Resources */,
+				99661662240BC8AF00072082 /* ChannelCell.xib in Resources */,
 				99BCB4ED23FF31E400316EF7 /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31C15E177CCCB3E374169D82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-P2PChat/Pods-P2PChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-P2PChat/Pods-P2PChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-P2PChat/Pods-P2PChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD7DB9D6A1762825D3E46A9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-P2PChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		997E03B923F89FE900506D4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D760E42425833C00325677 /* MessagesDataManagerDelegate.swift in Sources */,
 				995F73B1241EA08100F1EC31 /* ProfileDataManager.swift in Sources */,
-				99661669240BEEDE00072082 /* MessageCellModel.swift in Sources */,
+				99D760E824258D4700325677 /* ProfileModel.swift in Sources */,
 				99BCB4EB23FF31CA00316EF7 /* ProfileViewController.swift in Sources */,
 				995F73AB241E552500F1EC31 /* GCDProfileDataManager.swift in Sources */,
-				995F73AD241E554000F1EC31 /* OperationProfileDataManager.swift in Sources */,
-				99661657240BB17C00072082 /* ConversationViewController.swift in Sources */,
+				99D760D724254F9C00325677 /* MessageModel.swift in Sources */,
+				99D760DC2425823C00325677 /* ChannelsDataManager.swift in Sources */,
+				99661657240BB17C00072082 /* MessagesViewController.swift in Sources */,
+				99D760EC242593B400325677 /* SectionOfChannelsModel.swift in Sources */,
+				99D760D324254F6600325677 /* ChannelModel.swift in Sources */,
 				9991D3D5240C2CD000DF7A9E /* ConfigurableView.swift in Sources */,
-				9966165C240BC82D00072082 /* ConversationCellModel.swift in Sources */,
-				99661659240BB1A600072082 /* ConversationListViewController.swift in Sources */,
+				99D760E02425827B00325677 /* FirestoreChannelsDataManager.swift in Sources */,
+				99D760E22425831100325677 /* MessagesDataManager.swift in Sources */,
+				99661659240BB1A600072082 /* ChannelsViewController.swift in Sources */,
+				99D760E62425837700325677 /* FirestoreMessagesDataManager.swift in Sources */,
 				995F73AF241E849600F1EC31 /* ProfileDataManagerDelegate.swift in Sources */,
+				99D760DE2425825E00325677 /* ChannelsDataManagerDelegate.swift in Sources */,
+				99D760EF2427D2A200325677 /* Utils.swift in Sources */,
 				99661674240BF0D600072082 /* MessageCell.swift in Sources */,
 				997E03C123F89FE900506D4A /* AppDelegate.swift in Sources */,
-				99661661240BC8AF00072082 /* ConversationCell.swift in Sources */,
+				99661661240BC8AF00072082 /* ChannelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +532,7 @@
 		};
 		997E03D223F89FEA00506D4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D63715F66510EB20D619009F /* Pods-P2PChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,7 +543,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.veirisa.P2PChat;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tcsbank.TinkoffChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -399,6 +552,7 @@
 		};
 		997E03D323F89FEA00506D4A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -409,7 +563,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.veirisa.P2PChat;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tcsbank.TinkoffChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

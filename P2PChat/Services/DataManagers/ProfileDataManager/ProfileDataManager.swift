@@ -10,11 +10,6 @@ import UIKit
 
 protocol ProfileDataManager: class {
     
-    func readFullName()
-    func readDescription()
-    func readImage()
-    
-    func writeData(fullName: String)
-    func writeData(description: String)
-    func writeData(avatar: UIImage) 
+    func readProfile()
+    func writeProfile(fullName: String?, description: String?, avatar: UIImage?)
 }

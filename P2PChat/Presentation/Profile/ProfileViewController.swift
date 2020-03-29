@@ -9,40 +9,29 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ProfileDataManagerDelegate {
-
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var changeAvatarButton: UIButton!
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var cancelEditingButton: UIButton!
-    @IBOutlet weak var saveGCDButton: UIButton!
-    @IBOutlet weak var saveOperationButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let gcdDataManager = GCDProfileDataManager()
-    let operationDataManager = OperationProfileDataManager()
-    var dataManager: ProfileDataManager?
+    private let profileDataManager = GCDProfileDataManager()
+    private var isWritingExecuted = false
     
-    var fullNameTaskExecuted = false
-    var descriptionTaskExecuted = false
-    var avatarTaskExecuted = false
-    var isSuccessExecution = true
+    private var imagePicker = UIImagePickerController();
     
-    var currentFullName = "-"
-    var currentDescription = "-"
-    var currentAvatar = UIImage(named: "PlaceholderUser")
-    
-    var imagePicker = UIImagePickerController();
-    
-    // MARK: Update navigation bar
+    // MARK: Init navigation bar
     
     @objc private func closeProfile() {
         dismiss(animated: true, completion: nil)
     }
     
-    private func updateNavigationBar() {
+    private func initNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(closeProfile))
     }
     
@@ -62,16 +51,16 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
         descriptionTextView.textColor = .darkGray
         setButtonLayoutCharacteristics(editButton)
         setButtonLayoutCharacteristics(cancelEditingButton)
-        setButtonLayoutCharacteristics(saveGCDButton)
-        setButtonLayoutCharacteristics(saveOperationButton)
+        setButtonLayoutCharacteristics(saveButton)
     }
     
     // MARK: Set current values
     
     private func setCurrentValues() {
-        fullNameTextField.text = currentFullName
-        descriptionTextView.text = currentDescription
-        avatarImageView.image = currentAvatar
+        let profile = ProfileModel.shared
+        fullNameTextField.text = profile.fullName
+        descriptionTextView.text = profile.description
+        avatarImageView.image = profile.avatar
     }
     
     // MARK: Set editing characteristics
@@ -81,8 +70,7 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
         descriptionTextView.isUserInteractionEnabled = true
         changeAvatarButton.isEnabled = true
         cancelEditingButton.isHidden = false
-        saveGCDButton.isHidden = false
-        saveOperationButton.isHidden = false
+        saveButton.isHidden = false
         editButton.isHidden = true
         deactivateSaveButton()
     }
@@ -92,8 +80,7 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
         descriptionTextView.isUserInteractionEnabled = false
         changeAvatarButton.isEnabled = false
         cancelEditingButton.isHidden = true
-        saveGCDButton.isHidden = true
-        saveOperationButton.isHidden = true
+        saveButton.isHidden = true
         editButton.isHidden = false
         setCurrentValues()
     }
@@ -109,20 +96,19 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     // MARK: Save button activation
     
     private func activateSaveButton() {
-        saveGCDButton.isEnabled = true;
-        saveOperationButton.isEnabled = true;
+        saveButton.isEnabled = true
     }
     
     private func deactivateSaveButton() {
-        saveGCDButton.isEnabled = false;
-        saveOperationButton.isEnabled = false;
+        saveButton.isEnabled = false
     }
     
     private func tryActivateSaveButton() {
-        if (!fullNameTaskExecuted && !descriptionTaskExecuted && !avatarTaskExecuted) {
-            if (currentFullName != fullNameTextField.text
-                || currentDescription != descriptionTextView.text
-                || currentAvatar != avatarImageView.image) {
+        let profile = ProfileModel.shared
+        if (!isWritingExecuted) {
+            if (profile.fullName != fullNameTextField.text
+                || profile.description != descriptionTextView.text
+                || profile.avatar != avatarImageView.image) {
                 activateSaveButton()
                 return
             }
@@ -130,110 +116,22 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
         deactivateSaveButton()
     }
     
-    // MARK: Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateNavigationBar()
-        setLayoutCharacteristics()
-        setCurrentValues()
-        setNonEditingModeCharacteristics()
-        activityIndicator.hidesWhenStopped = true
-        imagePicker.delegate = self
-        gcdDataManager.delegate = self
-        operationDataManager.delegate = self
-        dataManager = gcdDataManager
-        readData()
-    }
-    
-    // MARK: Manage data (ProfileDataManagerDelegate)
-    
-    private func tryFinishReading() {
-        if (!fullNameTaskExecuted && !descriptionTaskExecuted && !avatarTaskExecuted) {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.setCurrentValues()
-                self.activityIndicator.stopAnimating()
-            }
-        }
-    }
-    
-    func didReadData(fullName: String?) {
-        fullNameTaskExecuted = false
-        if let fullName = fullName {
-            currentFullName = fullName
-        }
-        tryFinishReading()
-    }
-     
-    func didReadData(description: String?) {
-        descriptionTaskExecuted = false
-        if let description = description {
-            currentDescription = description
-        }
-        tryFinishReading()
-    }
-     
-    func didReadData(avatar: UIImage?) {
-        avatarTaskExecuted = false
-        if let avatar = avatar {
-            currentAvatar = avatar
-        }
-        tryFinishReading()
-    }
-    
-    private func tryFinishWriting() {
-        if (!fullNameTaskExecuted && !descriptionTaskExecuted && !avatarTaskExecuted) {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.tryActivateSaveButton()
-                self.activityIndicator.stopAnimating()
-                self.showSavingStatusAlert(self.isSuccessExecution)
-            }
-        }
-    }
-     
-    func didWriteData(fullName: String, status: Bool) {
-        fullNameTaskExecuted = false
-        if status {
-            currentFullName = fullName
-        } else {
-            isSuccessExecution = false
-        }
-        tryFinishWriting()
-    }
-     
-    func didWriteData(description: String, status: Bool) {
-        descriptionTaskExecuted = false
-        if status {
-            currentDescription = description
-        } else {
-            isSuccessExecution = false
-        }
-        tryFinishWriting()
-    }
-     
-    func didWriteData(avatar: UIImage, status: Bool) {
-        avatarTaskExecuted = false
-        if status {
-            currentAvatar = avatar
-        } else {
-            isSuccessExecution = false
-        }
-        tryFinishWriting()
-    }
-    
     // MARK: Manage data
     
-    private func readData() {
-        guard let dataManager = dataManager else { return }
-        activityIndicator.startAnimating()
-        fullNameTaskExecuted = true
-        dataManager.readFullName()
-        descriptionTaskExecuted = true
-        dataManager.readDescription()
-        avatarTaskExecuted = true
-        dataManager.readImage()
+    func profileDidReaded() {
+        DispatchQueue.main.async { [weak self] in
+            self?.setCurrentValues()
+        }
+    }
+    
+    func profileDidWrited(status: Bool) {
+        isWritingExecuted = false
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tryActivateSaveButton()
+            self.activityIndicator.stopAnimating()
+            self.showSavingStatusAlert(status)
+        }
     }
     
     private func showSavingStatusAlert(_ isSuccess: Bool) {
@@ -249,38 +147,30 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
         }
     }
     
-    private func writeData() {
-        guard let dataManager = dataManager else { return }
+    func writeData() {
         deactivateSaveButton()
         activityIndicator.startAnimating()
-        if (currentFullName != fullNameTextField.text) {
-            if let newFullName = fullNameTextField.text {
-                fullNameTaskExecuted = true
-                dataManager.writeData(fullName: newFullName)
-            }
-        }
-        if (currentDescription != descriptionTextView.text) {
-            if let newDescription = descriptionTextView.text {
-                descriptionTaskExecuted = true
-                dataManager.writeData(description: newDescription)
-            }
-        }
-        if (currentAvatar != avatarImageView.image) {
-            if let newAvatar = avatarImageView.image {
-                avatarTaskExecuted = true
-                dataManager.writeData(avatar: newAvatar)
-            }
-        }
+        let fullName = fullNameTextField.text
+        let description = descriptionTextView.text
+        let avatar = avatarImageView.image
+        profileDataManager.writeProfile(fullName: fullName, description: description, avatar: avatar)
     }
     
-    @IBAction func saveDataGCDAction(_ sender: UIButton) {
-        dataManager = gcdDataManager
+    @IBAction func saveProfileAction(_ sender: UIButton) {
         writeData()
     }
     
-    @IBAction func saveDataOperationAction(_ sender: UIButton) {
-        dataManager = operationDataManager
-        writeData()
+    // MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initNavigationBar()
+        setLayoutCharacteristics()
+        setCurrentValues()
+        setNonEditingModeCharacteristics()
+        activityIndicator.hidesWhenStopped = true
+        imagePicker.delegate = self
+        profileDataManager.delegate = self
     }
     
     // MARK: Change full name (TextField)
@@ -294,7 +184,7 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     func textViewDidEndEditing(_ textView: UITextView) {
         tryActivateSaveButton()
     }
-
+    
     // MARK: Change avatar
     
     private func openGallery() {
@@ -325,7 +215,6 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     }
     
     @IBAction func changeAvatarAction(_ sender: UIButton) {
-        print("Choose profile image")
         let changeAvatarAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         changeAvatarAlert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { [weak self] _ in
             changeAvatarAlert.dismiss(animated: true, completion: nil)

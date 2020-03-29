@@ -44,48 +44,33 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abb-vm-H60">
-                                <rect key="frame" x="116.5" y="513" width="87" height="35"/>
+                                <rect key="frame" x="165" y="513" width="135" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6v0-VG-DcL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Save (GCD)">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveDataGCDAction:" destination="fUD-wF-vyL" eventType="touchUpInside" id="tBo-bW-2L9"/>
+                                    <action selector="saveProfileAction:" destination="fUD-wF-vyL" eventType="touchUpInside" id="iwu-E0-nov"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cV9-yS-Eti">
-                                <rect key="frame" x="20" y="513" width="86.5" height="35"/>
+                                <rect key="frame" x="20" y="513" width="135" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="29l-Zb-UM2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="enterNonEditingMode:" destination="fUD-wF-vyL" eventType="touchUpInside" id="wBG-Oa-Bwe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-IS-c9c">
-                                <rect key="frame" x="213.5" y="513" width="86.5" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="FSw-89-V37"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Save (Oper)">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveDataOperationAction:" destination="fUD-wF-vyL" eventType="touchUpInside" id="6uY-4o-N9m"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="-" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vYB-cb-0YQ">
@@ -126,7 +111,6 @@
                             <constraint firstItem="Zmy-mP-LbN" firstAttribute="centerY" secondItem="2xh-38-ZYM" secondAttribute="centerY" id="8BZ-2l-Nlw"/>
                             <constraint firstItem="dLt-Io-cb4" firstAttribute="trailing" secondItem="2xh-38-ZYM" secondAttribute="trailing" id="DXo-ao-snj"/>
                             <constraint firstItem="tSY-on-rWa" firstAttribute="top" secondItem="2xh-38-ZYM" secondAttribute="bottom" constant="5" id="E0E-if-0T2"/>
-                            <constraint firstItem="g2s-IS-c9c" firstAttribute="height" secondItem="Abb-vm-H60" secondAttribute="height" id="Jon-Ld-8FF"/>
                             <constraint firstItem="2xh-38-ZYM" firstAttribute="leading" secondItem="Th9-Z1-Sl4" secondAttribute="leading" constant="20" id="PB3-TJ-bWR"/>
                             <constraint firstItem="ZWy-IO-Bg1" firstAttribute="leading" secondItem="Th9-Z1-Sl4" secondAttribute="leading" constant="20" id="Xq6-vu-rH4"/>
                             <constraint firstItem="Th9-Z1-Sl4" firstAttribute="bottom" secondItem="Abb-vm-H60" secondAttribute="bottom" constant="20" id="Ytt-0h-1Ij"/>
@@ -135,16 +119,13 @@
                             <constraint firstItem="Abb-vm-H60" firstAttribute="top" secondItem="vYB-cb-0YQ" secondAttribute="bottom" constant="10" id="bs4-DW-bSj"/>
                             <constraint firstItem="Th9-Z1-Sl4" firstAttribute="trailing" secondItem="2xh-38-ZYM" secondAttribute="trailing" constant="20" id="erC-OA-8EN"/>
                             <constraint firstItem="ZWy-IO-Bg1" firstAttribute="top" secondItem="vYB-cb-0YQ" secondAttribute="bottom" constant="10" id="f5Q-ZH-Sc0"/>
-                            <constraint firstItem="Th9-Z1-Sl4" firstAttribute="trailing" secondItem="g2s-IS-c9c" secondAttribute="trailing" constant="20" id="oUO-6K-aoQ"/>
+                            <constraint firstItem="Th9-Z1-Sl4" firstAttribute="trailing" secondItem="Abb-vm-H60" secondAttribute="trailing" constant="20" id="kSR-dt-fOZ"/>
                             <constraint firstItem="Th9-Z1-Sl4" firstAttribute="bottom" secondItem="ZWy-IO-Bg1" secondAttribute="bottom" constant="20" id="okN-jE-gCk"/>
                             <constraint firstItem="Th9-Z1-Sl4" firstAttribute="trailing" secondItem="ZWy-IO-Bg1" secondAttribute="trailing" constant="20" id="u4b-rJ-XnH"/>
                             <constraint firstItem="cV9-yS-Eti" firstAttribute="height" secondItem="Abb-vm-H60" secondAttribute="height" id="uyM-VU-PV6"/>
-                            <constraint firstItem="g2s-IS-c9c" firstAttribute="width" secondItem="Abb-vm-H60" secondAttribute="width" id="vCD-eS-5sE"/>
-                            <constraint firstItem="Th9-Z1-Sl4" firstAttribute="bottom" secondItem="g2s-IS-c9c" secondAttribute="bottom" constant="20" id="vVi-6i-CqF"/>
                             <constraint firstItem="Abb-vm-H60" firstAttribute="leading" secondItem="cV9-yS-Eti" secondAttribute="trailing" constant="10" id="vZT-ok-Noj"/>
                             <constraint firstItem="Th9-Z1-Sl4" firstAttribute="bottom" secondItem="cV9-yS-Eti" secondAttribute="bottom" constant="20" id="wMR-7c-VQw"/>
                             <constraint firstItem="dLt-Io-cb4" firstAttribute="bottom" secondItem="2xh-38-ZYM" secondAttribute="bottom" id="wWZ-Bh-rwz"/>
-                            <constraint firstItem="g2s-IS-c9c" firstAttribute="leading" secondItem="Abb-vm-H60" secondAttribute="trailing" constant="10" id="xuE-pj-qQv"/>
                             <constraint firstItem="2xh-38-ZYM" firstAttribute="top" secondItem="Th9-Z1-Sl4" secondAttribute="top" constant="20" id="yfg-tq-M9N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Th9-Z1-Sl4"/>
@@ -158,8 +139,7 @@
                         <outlet property="descriptionTextView" destination="vYB-cb-0YQ" id="41I-CA-tki"/>
                         <outlet property="editButton" destination="ZWy-IO-Bg1" id="SRF-y4-zaO"/>
                         <outlet property="fullNameTextField" destination="tSY-on-rWa" id="gbp-WT-oye"/>
-                        <outlet property="saveGCDButton" destination="Abb-vm-H60" id="PJQ-e8-sKW"/>
-                        <outlet property="saveOperationButton" destination="g2s-IS-c9c" id="k4X-dj-ybs"/>
+                        <outlet property="saveButton" destination="Abb-vm-H60" id="Mam-NP-7n9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spb-Im-avW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
