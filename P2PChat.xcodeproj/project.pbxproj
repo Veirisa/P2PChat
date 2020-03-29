@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		574535EDF31E38A8A09B3C66 /* Pods_P2PChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */; };
-		995F73AB241E552500F1EC31 /* GCDProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73AA241E552500F1EC31 /* GCDProfileDataManager.swift */; };
+		994B4AC62430EF3F0005901B /* CoreDataStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AC52430EF3F0005901B /* CoreDataStorageManager.swift */; };
+		994B4AC82430EF540005901B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AC72430EF540005901B /* StorageManager.swift */; };
+		994B4AEE2430F25E0005901B /* P2PChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AEC2430F25E0005901B /* P2PChat.xcdatamodeld */; };
+		994B4AF0243108340005901B /* ProfileStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AEF243108340005901B /* ProfileStorageModel.swift */; };
+		995F73AB241E552500F1EC31 /* StorageProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73AA241E552500F1EC31 /* StorageProfileDataManager.swift */; };
 		995F73AF241E849600F1EC31 /* ProfileDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73AE241E849600F1EC31 /* ProfileDataManagerDelegate.swift */; };
 		995F73B1241EA08100F1EC31 /* ProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995F73B0241EA08100F1EC31 /* ProfileDataManager.swift */; };
 		99661651240BB08700072082 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99661650240BB08700072082 /* Channels.storyboard */; };
@@ -42,7 +46,11 @@
 /* Begin PBXFileReference section */
 		0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.release.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.release.xcconfig"; sourceTree = "<group>"; };
 		990309432413A13400DF6DDA /* ITCompany.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ITCompany.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		995F73AA241E552500F1EC31 /* GCDProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDProfileDataManager.swift; sourceTree = "<group>"; };
+		994B4AC52430EF3F0005901B /* CoreDataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManager.swift; sourceTree = "<group>"; };
+		994B4AC72430EF540005901B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		994B4AED2430F25E0005901B /* P2PChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = P2PChat.xcdatamodel; sourceTree = "<group>"; };
+		994B4AEF243108340005901B /* ProfileStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStorageModel.swift; sourceTree = "<group>"; };
+		995F73AA241E552500F1EC31 /* StorageProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProfileDataManager.swift; sourceTree = "<group>"; };
 		995F73AE241E849600F1EC31 /* ProfileDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManagerDelegate.swift; sourceTree = "<group>"; };
 		995F73B0241EA08100F1EC31 /* ProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManager.swift; sourceTree = "<group>"; };
 		99661650240BB08700072082 /* Channels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channels.storyboard; sourceTree = "<group>"; };
@@ -97,10 +105,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		994B4AC42430EF0B0005901B /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				994B4AC52430EF3F0005901B /* CoreDataStorageManager.swift */,
+				994B4AC72430EF540005901B /* StorageManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 		995F73A9241E54DE00F1EC31 /* ProfileDataManager */ = {
 			isa = PBXGroup;
 			children = (
-				995F73AA241E552500F1EC31 /* GCDProfileDataManager.swift */,
+				995F73AA241E552500F1EC31 /* StorageProfileDataManager.swift */,
 				995F73AE241E849600F1EC31 /* ProfileDataManagerDelegate.swift */,
 				995F73B0241EA08100F1EC31 /* ProfileDataManager.swift */,
 			);
@@ -172,10 +189,9 @@
 				990309432413A13400DF6DDA /* ITCompany.playground */,
 				997E03C023F89FE900506D4A /* AppDelegate.swift */,
 				997E03C923F89FEA00506D4A /* Assets.xcassets */,
-				997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */,
 				997E03CE23F89FEA00506D4A /* Info.plist */,
-				9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */,
 				99D760EE2427D2A200325677 /* Utils.swift */,
+				994B4AEC2430F25E0005901B /* P2PChat.xcdatamodeld */,
 			);
 			path = P2PChat;
 			sourceTree = "<group>";
@@ -201,6 +217,8 @@
 		99D760CA24254D5800325677 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */,
+				9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */,
 				9966164F240BB03600072082 /* Channels */,
 				9966164E240BB01000072082 /* Messages */,
 				99BCB4E923FF319400316EF7 /* Profile */,
@@ -215,6 +233,7 @@
 				99D760D624254F9C00325677 /* MessageModel.swift */,
 				99D760E724258D4700325677 /* ProfileModel.swift */,
 				99D760EB242593B400325677 /* SectionOfChannelsModel.swift */,
+				994B4AEF243108340005901B /* ProfileStorageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,6 +241,7 @@
 		99D760CC24254DED00325677 /* DataManagers */ = {
 			isa = PBXGroup;
 			children = (
+				994B4AC42430EF0B0005901B /* StorageManager */,
 				99D760DA242581A200325677 /* MessagesDataManager */,
 				99D760CD24254E8B00325677 /* ChannelsDataManager */,
 				995F73A9241E54DE00F1EC31 /* ProfileDataManager */,
@@ -382,15 +402,18 @@
 				995F73B1241EA08100F1EC31 /* ProfileDataManager.swift in Sources */,
 				99D760E824258D4700325677 /* ProfileModel.swift in Sources */,
 				99BCB4EB23FF31CA00316EF7 /* ProfileViewController.swift in Sources */,
-				995F73AB241E552500F1EC31 /* GCDProfileDataManager.swift in Sources */,
+				995F73AB241E552500F1EC31 /* StorageProfileDataManager.swift in Sources */,
 				99D760D724254F9C00325677 /* MessageModel.swift in Sources */,
+				994B4AC62430EF3F0005901B /* CoreDataStorageManager.swift in Sources */,
 				99D760DC2425823C00325677 /* ChannelsDataManager.swift in Sources */,
 				99661657240BB17C00072082 /* MessagesViewController.swift in Sources */,
+				994B4AF0243108340005901B /* ProfileStorageModel.swift in Sources */,
 				99D760EC242593B400325677 /* SectionOfChannelsModel.swift in Sources */,
 				99D760D324254F6600325677 /* ChannelModel.swift in Sources */,
 				9991D3D5240C2CD000DF7A9E /* ConfigurableView.swift in Sources */,
 				99D760E02425827B00325677 /* FirestoreChannelsDataManager.swift in Sources */,
 				99D760E22425831100325677 /* MessagesDataManager.swift in Sources */,
+				994B4AEE2430F25E0005901B /* P2PChat.xcdatamodeld in Sources */,
 				99661659240BB1A600072082 /* ChannelsViewController.swift in Sources */,
 				99D760E62425837700325677 /* FirestoreMessagesDataManager.swift in Sources */,
 				995F73AF241E849600F1EC31 /* ProfileDataManagerDelegate.swift in Sources */,
@@ -399,6 +422,7 @@
 				99661674240BF0D600072082 /* MessageCell.swift in Sources */,
 				997E03C123F89FE900506D4A /* AppDelegate.swift in Sources */,
 				99661661240BC8AF00072082 /* ChannelCell.swift in Sources */,
+				994B4AC82430EF540005901B /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +616,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		994B4AEC2430F25E0005901B /* P2PChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				994B4AED2430F25E0005901B /* P2PChat.xcdatamodel */,
+			);
+			currentVersion = 994B4AED2430F25E0005901B /* P2PChat.xcdatamodel */;
+			path = P2PChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 997E03B523F89FE800506D4A /* Project object */;
 }

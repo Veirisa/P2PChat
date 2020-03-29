@@ -21,7 +21,7 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
     private var isProfileDidReaded = false
     private var isChannelsDidLoaded = false
 
-    private let profileDataManager = GCDProfileDataManager()
+    private let profileDataManager = StorageProfileDataManager()
     private let channelsDataManager = FirestoreChannelsDataManager()
     private var channels: [String: ChannelModel] = [:]
     private var sectionsOfChannels = [SectionOfChannelsModel(name: "Online", channels: []),
