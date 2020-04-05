@@ -45,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.release.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.release.xcconfig"; sourceTree = "<group>"; };
-		990309432413A13400DF6DDA /* ITCompany.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ITCompany.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		994B4AC52430EF3F0005901B /* CoreDataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManager.swift; sourceTree = "<group>"; };
 		994B4AC72430EF540005901B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		994B4AED2430F25E0005901B /* P2PChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = P2PChat.xcdatamodel; sourceTree = "<group>"; };
@@ -186,7 +185,6 @@
 			children = (
 				99D760CA24254D5800325677 /* Presentation */,
 				99D760C924254D4300325677 /* Services */,
-				990309432413A13400DF6DDA /* ITCompany.playground */,
 				997E03C023F89FE900506D4A /* AppDelegate.swift */,
 				997E03C923F89FEA00506D4A /* Assets.xcassets */,
 				997E03CE23F89FEA00506D4A /* Info.plist */,
