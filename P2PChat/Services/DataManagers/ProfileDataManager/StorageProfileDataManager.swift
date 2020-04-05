@@ -21,7 +21,7 @@ class StorageProfileDataManager: ProfileDataManager {
         let task = { [weak self] (context: NSManagedObjectContext) -> Void in
             let fetchRequest = NSFetchRequest<ProfileStorageModel>(entityName: "Profile")
             let allProfileStorages = try? context.fetch(fetchRequest)
-            let profileStorage = allProfileStorages?.first
+            let profileStorage = allProfileStorages?.last
             if let profileStorage = profileStorage {
                 let profile = ProfileModel.shared
                 profile.update(profileStorage: profileStorage)
@@ -43,7 +43,7 @@ class StorageProfileDataManager: ProfileDataManager {
                 profileStorage?.userDescription = description
             }
             if let avatar = avatar {
-                profileStorage?.avatar = avatar
+                profileStorage?.avatar = avatar.pngData()
             }
             do {
                 try context.save()
