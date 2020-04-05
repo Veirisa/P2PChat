@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileModel {
+    
     let identifier = "anna_rodionova"
     var fullName = "-"
     var description = "-"
@@ -19,6 +21,18 @@ class ProfileModel {
     }()
     
     private init() {}
+    
+    func update(profileStorage: ProfileStorageModel) {
+        if let fullName = profileStorage.fullName {
+            self.fullName = fullName
+        }
+        if let description = profileStorage.userDescription {
+            self.description = description
+        }
+        if let avatar = profileStorage.avatar {
+            self.avatar = avatar
+        }
+    }
 }
 
 extension ProfileModel: NSCopying {
