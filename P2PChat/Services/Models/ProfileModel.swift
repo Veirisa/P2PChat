@@ -30,7 +30,7 @@ class ProfileModel {
             self.description = description
         }
         if let avatar = profileStorage.avatar {
-            self.avatar = avatar
+            self.avatar = UIImage(data: avatar)
         }
     }
 }

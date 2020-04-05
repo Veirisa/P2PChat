@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Profile" representedClassName="Profile" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="Binary"/>
-        <attribute name="fullName" optional="YES" attributeType="String"/>
+        <attribute name="fileName" optional="YES" attributeType="String"/>
         <attribute name="userDescription" optional="YES" attributeType="String"/>
     </entity>
     <elements>

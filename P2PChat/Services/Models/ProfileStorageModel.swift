@@ -11,7 +11,7 @@ import CoreData
 
 @objc(Profile)
 class ProfileStorageModel: NSManagedObject {
-    var fullName: String?
-    var userDescription: String?
-    var avatar: UIImage?
+    @NSManaged var fullName: String?
+    @NSManaged var userDescription: String?
+    @NSManaged var avatar: Data?
 }
