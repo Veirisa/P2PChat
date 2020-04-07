@@ -22,7 +22,7 @@ class ProfileModel {
     
     private init() {}
     
-    func update(profileStorage: ProfileStorageModel) {
+    func update(profileStorage: StorageProfileModel) {
         if let fullName = profileStorage.fullName {
             self.fullName = fullName
         }

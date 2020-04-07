@@ -1,5 +1,5 @@
 //
-//  FirestoreMessagesDataManager.swift
+//  CloudMessagesDataManagerImpl.swift
 //  P2PChat
 //
 //  Created by Anna Rodionova on 21.03.2020.
@@ -9,40 +9,47 @@
 import UIKit
 import Firebase
 
-class FirestoreMessagesDataManager: MessagesDataManager {
+class CloudMessagesDataManagerImpl: CloudMessagesDataManager {
     
-    weak var delegate: MessagesDataManagerDelegate?
+    weak var delegate: CloudMessagesDataManagerDelegate?
+    
+    let channelId: String
 
     private lazy var db = Firestore.firestore()
     private lazy var channelsReference = db.collection("channels")
+    
     private var messagesListener: ListenerRegistration?
+    
+    required init(for channelId: String) {
+        self.channelId = channelId
+    }
     
     deinit {
         messagesListener?.remove()
     }
     
-    func addNew(message: MessageModel, to channelId: String) {
+    func addNew(message: MessageModel) {
         let messagesReference = channelsReference.document(channelId).collection("messages")
         messagesReference.addDocument(data: message.toDict)
     }
     
-    func startMessagesListener(for channelId: String) {
+    func startMessagesListener() {
         let messagesReference = channelsReference.document(channelId).collection("messages")
         messagesListener = messagesReference.addSnapshotListener({[weak self] snapshot, error in
             if let error = error {
                 print("Error loading messages: \(error)")
             } else {
-                var messagesDifference: [MessageModel] = []
+                var addedMessagesDifference: [MessageModel] = []
                 if let snapshot = snapshot {
                     for difference in snapshot.documentChanges {
                         if (difference.type == .added) {
                             if let message = parseMessageDict(from: difference.document.data()) {
-                                messagesDifference.append(message)
+                                addedMessagesDifference.append(message)
                             }
                         }
                     }
                 }
-                self?.delegate?.messagesDifferenceDidLoaded(messagesDifference: messagesDifference)
+                self?.delegate?.messagesDifferenceDidLoaded(added: addedMessagesDifference)
             }
         })
     }

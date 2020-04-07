@@ -10,5 +10,9 @@ import UIKit
 import CoreData
 
 protocol StorageManager: class {
+    
+    func fetchedResultsController<T>(fetchRequestTemp: NSFetchRequest<T>, keyForSort: String, ascending: Bool, sectionNameKeyPath: String?, sectionAscending: Bool?) -> NSFetchedResultsController<T>
+    
+    func performMainTask(task: @escaping ((NSManagedObjectContext) -> Void))
     func performBackgroundTask(task: @escaping ((NSManagedObjectContext) -> Void))
 }

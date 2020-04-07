@@ -9,17 +9,17 @@
 import UIKit
 import CoreData
 
-class StorageProfileDataManager: ProfileDataManager {
+class ProfileDataManagerImpl: ProfileDataManager {
     
     weak var delegate: ProfileDataManagerDelegate?
     
-    private var storageManager: StorageManager = CoreDataStorageManager()
+    private var storageManager: StorageManager = StorageManagerImpl()
     
     // MARK: Reading
     
     func readProfile() {
         let task = { [weak self] (context: NSManagedObjectContext) -> Void in
-            let fetchRequest = NSFetchRequest<ProfileStorageModel>(entityName: "Profile")
+            let fetchRequest = NSFetchRequest<StorageProfileModel>(entityName: "Profile")
             let allProfileStorages = try? context.fetch(fetchRequest)
             let profileStorage = allProfileStorages?.last
             if let profileStorage = profileStorage {
@@ -35,7 +35,7 @@ class StorageProfileDataManager: ProfileDataManager {
     
     func writeProfile(fullName: String?, description: String?, avatar: UIImage?) {
         let task = { [weak self] (context: NSManagedObjectContext) -> Void in
-            let profileStorage = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: context) as? ProfileStorageModel
+            let profileStorage = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: context) as? StorageProfileModel
             if let fullName = fullName {
                 profileStorage?.fullName = fullName
             }

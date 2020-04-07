@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private let profileDataManager = StorageProfileDataManager()
+    private let profileDataManager = ProfileDataManagerImpl()
     private var isWritingExecuted = false
     
     private var imagePicker = UIImagePickerController();
