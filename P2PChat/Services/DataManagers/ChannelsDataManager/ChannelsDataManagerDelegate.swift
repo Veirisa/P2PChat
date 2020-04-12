@@ -2,13 +2,11 @@
 //  ChannelsDataManagerDelegate.swift
 //  P2PChat
 //
-//  Created by Anna Rodionova on 21.03.2020.
+//  Created by Anna Rodionova on 07.04.2020.
 //  Copyright © 2020 Veirisa. All rights reserved.
 //
 
 import UIKit
+import CoreData
 
-protocol ChannelsDataManagerDelegate: class {
-    
-    func channelsDifferenceDidLoaded(channelsDifference: [String: ChannelModel])
-}
+protocol ChannelsDataManagerDelegate: NSFetchedResultsControllerDelegate {}

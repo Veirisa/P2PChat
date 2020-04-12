@@ -20,9 +20,9 @@ class MessageCell: UITableViewCell, ConfigurableView {
     private let incomingColor = UIColor(red: 242.0 / 255, green: 242.0 / 255, blue: 247.0 / 255, alpha: 1)
     private let outgoingColor = UIColor(red: 201.0 / 255, green: 232.0 / 255, blue: 251.0 / 255, alpha: 1)
     
-    func configure(with model: MessageModel) {
+    func configure(with model: StorageMessageModel) {
         senderLabel.text = model.senderName
-        dateLabel.text = Utils.handleDate(model.created)
+        dateLabel.text = DateUtils.handleDate(model.created)
         messageLabel.text = model.content
         if model.isOutgoing {
             leadingMessageViewConstraint.isActive = false

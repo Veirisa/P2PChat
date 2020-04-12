@@ -20,14 +20,6 @@ extension ChannelModel {
     var toDict: [String: Any] {
         return ["name": self.name]
     }
-    
-    var isOnline: Bool {
-        guard let lastActivity = lastActivity else { return false }
-        let onlineInterval = 10 * 60
-        let currentTime = Date().timeIntervalSince1970
-        let channelTime = lastActivity.timeIntervalSince1970
-        return Int(currentTime - channelTime) < onlineInterval
-    }
 }
 
 func parseChannelDict(from channelDict: [String: Any], identifier: String) -> ChannelModel? {

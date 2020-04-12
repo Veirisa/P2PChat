@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CoreData
 
 class ChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ProfileDataManagerDelegate, ChannelsDataManagerDelegate  {
     
@@ -21,11 +22,9 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
     private var isProfileDidReaded = false
     private var isChannelsDidLoaded = false
 
-    private let profileDataManager = StorageProfileDataManager()
-    private let channelsDataManager = FirestoreChannelsDataManager()
-    private var channels: [String: ChannelModel] = [:]
-    private var sectionsOfChannels = [SectionOfChannelsModel(name: "Online", channels: []),
-                                      SectionOfChannelsModel(name: "History", channels: [])]
+    private let profileDataManager = ProfileDataManagerImpl()
+    private let channelsDataManager = ChannelsDataManagerImpl()
+    private var channelsController: NSFetchedResultsController<StorageChannelModel>?
     
     // MARK: Init navigation bar
 
@@ -50,21 +49,8 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @objc private func updateTableView() {
-        for section in 0...sectionsOfChannels.count - 1 {
-            sectionsOfChannels[section].channels = []
-        }
-        for channel in channels.values {
-            let section = channel.isOnline ? 0 : 1
-            sectionsOfChannels[section].channels.append(channel)
-        }
-        for section in 0...sectionsOfChannels.count - 1 {
-            sectionsOfChannels[section].channels.sort(by: {channelFst, channelSnd in
-                return !Utils.compareByDate(channelFst.lastActivity, channelSnd.lastActivity)
-            })
-        }
+    private func updateTableView() {
         channelsTableView.reloadData()
-        channelsTableView.refreshControl?.endRefreshing()
         activityIndicator.stopAnimating()
         isChannelsDidLoaded = true
         tryShowTableView()
@@ -72,8 +58,7 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
     
     private func initTableView() {
         channelsTableView.alpha = 0
-        channelsTableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+
         let identifier = String(describing: ChannelCell.self)
         channelsTableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: identifier)
         channelsTableView.rowHeight = UITableView.automaticDimension
@@ -106,17 +91,14 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    private func startChannelsLoading() {
-        channelsDataManager.startChannelsListener()
+    func removeChannel(with channelId: String) {
+        channelsDataManager.removeChannel(with: channelId)
     }
-
-    func channelsDifferenceDidLoaded(channelsDifference: [String: ChannelModel]) {
-        for channel in channelsDifference.values {
-            if let channelId = channel.identifier {
-                channels[channelId] = channel
-            }
-        }
+    
+    private func loadChannels() {
+        channelsController = channelsDataManager.loadChannelsFromCache()
         updateTableView()
+        channelsDataManager.startChannelsListener()
     }
     
     // MARK: Lifecycle
@@ -130,39 +112,109 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
         profileDataManager.delegate = self
         channelsDataManager.delegate = self
         readProfile()
-        startChannelsLoading()
+        loadChannels()
     }
     
     // MARK: Table view
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionsOfChannels.count
+        guard let channelsController = channelsController else { return 0 }
+        if let sections = channelsController.sections {
+            return sections.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionsOfChannels[section].name
+        guard let channelsController = channelsController else { return nil }
+        return channelsController.sections?[section].name
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionsOfChannels[section].channels.count
+        guard let channelsController = channelsController else { return 0 }
+        if let sections = channelsController.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let channelsController = channelsController else { return UITableViewCell() }
+        let storageChannel = channelsController.object(at: indexPath)
         let identifier = String(describing: ChannelCell.self)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? ChannelCell else { return UITableViewCell() }
-        let model = sectionsOfChannels[indexPath.section].channels[indexPath.row]
-        cell.configure(with: model)
+        cell.configure(with: storageChannel)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let channelsController = channelsController else { return }
         let messagesStoryboard = UIStoryboard(name: "Messages", bundle: nil)
         if let messagesViewController = messagesStoryboard.instantiateInitialViewController() as? MessagesViewController {
-            let model = sectionsOfChannels[indexPath.section].channels[indexPath.row]
-            messagesViewController.setChannel(channel: model)
+            let storageChannel = channelsController.object(at: indexPath)
+            messagesViewController.setChannel(channel: storageChannel)
             messagesViewController.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(messagesViewController, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] _, indexPath in
+            guard let self = self else { return }
+            guard let channelsController = self.channelsController else { return }
+            guard let channelId = channelsController.object(at: indexPath).identifier else { return }
+            self.removeChannel(with: channelId)
+        }
+        return [deleteAction]
+    }
+    
+    // MARK: Fetched Results Controller
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        channelsTableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            self.channelsTableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            self.channelsTableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default: break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+            switch type {
+            case .insert:
+                if let indexPath = newIndexPath {
+                    self.channelsTableView.insertRows(at: [indexPath], with: .automatic)
+                }
+            case .update:
+                if let indexPath = indexPath {
+                    guard let storageChannel = controller.object(at: indexPath) as? StorageChannelModel else { return }
+                    guard let cell = self.channelsTableView.cellForRow(at: indexPath) as? ChannelCell else { return }
+                    cell.configure(with: storageChannel)
+                }
+            case .move:
+                if let indexPath = indexPath {
+                    self.channelsTableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                if let newIndexPath = newIndexPath {
+                    self.channelsTableView.insertRows(at: [newIndexPath], with: .automatic)
+                }
+            case .delete:
+                if let indexPath = indexPath {
+                    self.channelsTableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+            @unknown default: break
+            }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        channelsTableView.endUpdates()
     }
 }

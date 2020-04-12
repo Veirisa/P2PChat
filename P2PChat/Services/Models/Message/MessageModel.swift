@@ -23,10 +23,6 @@ extension MessageModel {
                 "senderID": senderId,
                 "senderName": senderName]
     }
-    
-    var isOutgoing: Bool {
-        return senderId == ProfileModel.shared.identifier
-    }
 }
 
 func parseMessageDict(from messageDict: [String: Any]) -> MessageModel? {
