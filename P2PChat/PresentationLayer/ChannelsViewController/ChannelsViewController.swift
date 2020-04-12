@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CoreData
 
-class ChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ProfileDataManagerDelegate, ChannelsDataManagerDelegate  {
+class ChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ProfileDataManagerDelegate  {
     
     @IBOutlet var channelsTableView: UITableView!
     @IBOutlet weak var newChannelTextField: UITextField!
@@ -24,7 +24,9 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
 
     private let profileDataManager = ProfileDataManagerImpl()
     private let channelsDataManager = ChannelsDataManagerImpl()
+    
     private var channelsController: NSFetchedResultsController<StorageChannelModel>?
+    private var channelsDataManagerDelegate: ChannelsDataManagerDelegate?
     
     // MARK: Init navigation bar
 
@@ -101,6 +103,14 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
         channelsDataManager.startChannelsListener()
     }
     
+    // MARK: Set data managers
+    
+    private func setDataManagers() {
+        profileDataManager.delegate = self
+        channelsDataManagerDelegate = ChannelsDataManagerDelegateImpl(tableView: channelsTableView)
+        channelsDataManager.delegate = channelsDataManagerDelegate
+    }
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -109,8 +119,7 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
         activityIndicator.startAnimating()
         initNavigationBar()
         initTableView()
-        profileDataManager.delegate = self
-        channelsDataManager.delegate = self
+        setDataManagers()
         readProfile()
         loadChannels()
     }
@@ -169,52 +178,5 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
             self.removeChannel(with: channelId)
         }
         return [deleteAction]
-    }
-    
-    // MARK: Fetched Results Controller
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        channelsTableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            self.channelsTableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-        case .delete:
-            self.channelsTableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-        default: break
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-            switch type {
-            case .insert:
-                if let indexPath = newIndexPath {
-                    self.channelsTableView.insertRows(at: [indexPath], with: .automatic)
-                }
-            case .update:
-                if let indexPath = indexPath {
-                    guard let storageChannel = controller.object(at: indexPath) as? StorageChannelModel else { return }
-                    guard let cell = self.channelsTableView.cellForRow(at: indexPath) as? ChannelCell else { return }
-                    cell.configure(with: storageChannel)
-                }
-            case .move:
-                if let indexPath = indexPath {
-                    self.channelsTableView.deleteRows(at: [indexPath], with: .automatic)
-                }
-                if let newIndexPath = newIndexPath {
-                    self.channelsTableView.insertRows(at: [newIndexPath], with: .automatic)
-                }
-            case .delete:
-                if let indexPath = indexPath {
-                    self.channelsTableView.deleteRows(at: [indexPath], with: .automatic)
-                }
-            @unknown default: break
-            }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        channelsTableView.endUpdates()
     }
 }

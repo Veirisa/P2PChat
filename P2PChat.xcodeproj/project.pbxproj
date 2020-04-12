@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		574535EDF31E38A8A09B3C66 /* Pods_P2PChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */; };
+		9917C7C124437E960052853E /* ChannelsDataManagerDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917C7C024437E960052853E /* ChannelsDataManagerDelegateImpl.swift */; };
+		9917C7C9244381D50052853E /* MessagesDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917C7C8244381D50052853E /* MessagesDataManagerDelegate.swift */; };
+		9917C7CB244382040052853E /* ChannelsDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917C7CA244382040052853E /* ChannelsDataManagerDelegate.swift */; };
+		9917C7CD244386310052853E /* MessagesDataManagerDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917C7CC244386310052853E /* MessagesDataManagerDelegateImpl.swift */; };
 		991DAC3A2439B7B3007AC80B /* P2PChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 991DAC382439B7B3007AC80B /* P2PChat.xcdatamodeld */; };
 		992297F8243B17D200491F71 /* StorageChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992297F7243B17D200491F71 /* StorageChannelModel.swift */; };
 		992297FA243B185D00491F71 /* StorageMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992297F9243B185D00491F71 /* StorageMessageModel.swift */; };
@@ -15,8 +19,6 @@
 		99229802243B1C2800491F71 /* MessagesDataManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229801243B1C2800491F71 /* MessagesDataManagerImpl.swift */; };
 		99229805243B1C6900491F71 /* ChannelsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229804243B1C6900491F71 /* ChannelsDataManager.swift */; };
 		99229809243B1C8A00491F71 /* ChannelsDataManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229808243B1C8A00491F71 /* ChannelsDataManagerImpl.swift */; };
-		9922980F243C702F00491F71 /* ChannelsDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9922980E243C702F00491F71 /* ChannelsDataManagerDelegate.swift */; };
-		99229814243C8CA600491F71 /* MessagesDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229813243C8CA600491F71 /* MessagesDataManagerDelegate.swift */; };
 		994B4AC62430EF3F0005901B /* StorageManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AC52430EF3F0005901B /* StorageManagerImpl.swift */; };
 		994B4AC82430EF540005901B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AC72430EF540005901B /* StorageManager.swift */; };
 		994B4AF0243108340005901B /* StorageProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AEF243108340005901B /* StorageProfileModel.swift */; };
@@ -52,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.release.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.release.xcconfig"; sourceTree = "<group>"; };
+		9917C7C024437E960052853E /* ChannelsDataManagerDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerDelegateImpl.swift; sourceTree = "<group>"; };
+		9917C7C8244381D50052853E /* MessagesDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerDelegate.swift; sourceTree = "<group>"; };
+		9917C7CA244382040052853E /* ChannelsDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerDelegate.swift; sourceTree = "<group>"; };
+		9917C7CC244386310052853E /* MessagesDataManagerDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerDelegateImpl.swift; sourceTree = "<group>"; };
 		991DAC392439B7B3007AC80B /* P2PChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = P2PChat.xcdatamodel; sourceTree = "<group>"; };
 		992297F7243B17D200491F71 /* StorageChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageChannelModel.swift; sourceTree = "<group>"; };
 		992297F9243B185D00491F71 /* StorageMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageMessageModel.swift; sourceTree = "<group>"; };
@@ -59,8 +65,6 @@
 		99229801243B1C2800491F71 /* MessagesDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerImpl.swift; sourceTree = "<group>"; };
 		99229804243B1C6900491F71 /* ChannelsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManager.swift; sourceTree = "<group>"; };
 		99229808243B1C8A00491F71 /* ChannelsDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerImpl.swift; sourceTree = "<group>"; };
-		9922980E243C702F00491F71 /* ChannelsDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerDelegate.swift; sourceTree = "<group>"; };
-		99229813243C8CA600491F71 /* MessagesDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerDelegate.swift; sourceTree = "<group>"; };
 		994B4AC52430EF3F0005901B /* StorageManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerImpl.swift; sourceTree = "<group>"; };
 		994B4AC72430EF540005901B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		994B4AEF243108340005901B /* StorageProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProfileModel.swift; sourceTree = "<group>"; };
@@ -116,6 +120,18 @@
 				A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9917C7BB24437C000052853E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				99D760EE2427D2A200325677 /* DateUtils.swift */,
+				997E03C923F89FEA00506D4A /* Assets.xcassets */,
+				9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */,
+				997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */,
+				991DAC382439B7B3007AC80B /* P2PChat.xcdatamodeld */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		992297FB243B198500491F71 /* CloudChannelsDataManager */ = {
@@ -184,24 +200,26 @@
 			path = ProfileDataManager;
 			sourceTree = "<group>";
 		};
-		9966164E240BB01000072082 /* Messages */ = {
+		9966164E240BB01000072082 /* MessagesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				99661663240BEE7D00072082 /* MessageCell */,
 				99661654240BB15400072082 /* Messages.storyboard */,
 				99661656240BB17C00072082 /* MessagesViewController.swift */,
+				9917C7CC244386310052853E /* MessagesDataManagerDelegateImpl.swift */,
 			);
-			path = Messages;
+			path = MessagesViewController;
 			sourceTree = "<group>";
 		};
-		9966164F240BB03600072082 /* Channels */ = {
+		9966164F240BB03600072082 /* ChannelsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				9966165A240BC7F900072082 /* ChannelCell */,
 				99661650240BB08700072082 /* Channels.storyboard */,
 				99661658240BB1A600072082 /* ChannelsViewController.swift */,
+				9917C7C024437E960052853E /* ChannelsDataManagerDelegateImpl.swift */,
 			);
-			path = Channels;
+			path = ChannelsViewController;
 			sourceTree = "<group>";
 		};
 		9966165A240BC7F900072082 /* ChannelCell */ = {
@@ -225,7 +243,6 @@
 		997E03B423F89FE800506D4A = {
 			isa = PBXGroup;
 			children = (
-				99A6AF90242289AB002E52AB /* GoogleService-Info.plist */,
 				997E03BF23F89FE900506D4A /* P2PChat */,
 				997E03BE23F89FE900506D4A /* Products */,
 				A476A722E041DF9AD8CF798D /* Pods */,
@@ -244,45 +261,45 @@
 		997E03BF23F89FE900506D4A /* P2PChat */ = {
 			isa = PBXGroup;
 			children = (
-				991DAC382439B7B3007AC80B /* P2PChat.xcdatamodeld */,
-				99D760CA24254D5800325677 /* Presentation */,
-				99D760C924254D4300325677 /* Services */,
-				997E03C023F89FE900506D4A /* AppDelegate.swift */,
-				997E03C923F89FEA00506D4A /* Assets.xcassets */,
 				997E03CE23F89FEA00506D4A /* Info.plist */,
-				99D760EE2427D2A200325677 /* DateUtils.swift */,
+				99A6AF90242289AB002E52AB /* GoogleService-Info.plist */,
+				99D760CA24254D5800325677 /* PresentationLayer */,
+				99D760C924254D4300325677 /* ServicesLayer */,
+				99D760CB24254DDF00325677 /* Models */,
+				9917C7BB24437C000052853E /* Supporting Files */,
+				997E03C023F89FE900506D4A /* AppDelegate.swift */,
 			);
 			path = P2PChat;
 			sourceTree = "<group>";
 		};
-		99BCB4E923FF319400316EF7 /* Profile */ = {
+		99BCB4E923FF319400316EF7 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
 				99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */,
 				99BCB4EC23FF31E400316EF7 /* Profile.storyboard */,
 			);
-			path = Profile;
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
-		99D760C924254D4300325677 /* Services */ = {
+		99D760C924254D4300325677 /* ServicesLayer */ = {
 			isa = PBXGroup;
 			children = (
-				99D760CC24254DED00325677 /* DataManagers */,
-				99D760CB24254DDF00325677 /* Models */,
+				994B4AC42430EF0B0005901B /* StorageManager */,
+				99D760DA242581A200325677 /* MessagesDataManager */,
+				99D760CD24254E8B00325677 /* ChannelsDataManager */,
+				995F73A9241E54DE00F1EC31 /* ProfileDataManager */,
 			);
-			path = Services;
+			path = ServicesLayer;
 			sourceTree = "<group>";
 		};
-		99D760CA24254D5800325677 /* Presentation */ = {
+		99D760CA24254D5800325677 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */,
-				9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */,
-				9966164F240BB03600072082 /* Channels */,
-				9966164E240BB01000072082 /* Messages */,
-				99BCB4E923FF319400316EF7 /* Profile */,
+				9966164F240BB03600072082 /* ChannelsViewController */,
+				9966164E240BB01000072082 /* MessagesViewController */,
+				99BCB4E923FF319400316EF7 /* ProfileViewController */,
 			);
-			path = Presentation;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		99D760CB24254DDF00325677 /* Models */ = {
@@ -295,24 +312,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		99D760CC24254DED00325677 /* DataManagers */ = {
-			isa = PBXGroup;
-			children = (
-				994B4AC42430EF0B0005901B /* StorageManager */,
-				99D760DA242581A200325677 /* MessagesDataManager */,
-				99D760CD24254E8B00325677 /* ChannelsDataManager */,
-				995F73A9241E54DE00F1EC31 /* ProfileDataManager */,
-			);
-			path = DataManagers;
-			sourceTree = "<group>";
-		};
 		99D760CD24254E8B00325677 /* ChannelsDataManager */ = {
 			isa = PBXGroup;
 			children = (
 				992297FB243B198500491F71 /* CloudChannelsDataManager */,
 				99229804243B1C6900491F71 /* ChannelsDataManager.swift */,
 				99229808243B1C8A00491F71 /* ChannelsDataManagerImpl.swift */,
-				9922980E243C702F00491F71 /* ChannelsDataManagerDelegate.swift */,
+				9917C7CA244382040052853E /* ChannelsDataManagerDelegate.swift */,
 			);
 			path = ChannelsDataManager;
 			sourceTree = "<group>";
@@ -323,7 +329,7 @@
 				992297FC243B19B800491F71 /* CloudMessagesDataManager */,
 				992297FD243B1BFD00491F71 /* MessagesDataManager.swift */,
 				99229801243B1C2800491F71 /* MessagesDataManagerImpl.swift */,
-				99229813243C8CA600491F71 /* MessagesDataManagerDelegate.swift */,
+				9917C7C8244381D50052853E /* MessagesDataManagerDelegate.swift */,
 			);
 			path = MessagesDataManager;
 			sourceTree = "<group>";
@@ -461,19 +467,21 @@
 				99D760E42425833C00325677 /* CloudMessagesDataManagerDelegate.swift in Sources */,
 				995F73B1241EA08100F1EC31 /* ProfileDataManager.swift in Sources */,
 				99D760E824258D4700325677 /* ProfileModel.swift in Sources */,
+				9917C7CD244386310052853E /* MessagesDataManagerDelegateImpl.swift in Sources */,
 				99BCB4EB23FF31CA00316EF7 /* ProfileViewController.swift in Sources */,
 				995F73AB241E552500F1EC31 /* ProfileDataManagerImpl.swift in Sources */,
 				99229809243B1C8A00491F71 /* ChannelsDataManagerImpl.swift in Sources */,
 				99D760D724254F9C00325677 /* MessageModel.swift in Sources */,
-				9922980F243C702F00491F71 /* ChannelsDataManagerDelegate.swift in Sources */,
+				9917C7C9244381D50052853E /* MessagesDataManagerDelegate.swift in Sources */,
+				9917C7C124437E960052853E /* ChannelsDataManagerDelegateImpl.swift in Sources */,
 				99229802243B1C2800491F71 /* MessagesDataManagerImpl.swift in Sources */,
 				994B4AC62430EF3F0005901B /* StorageManagerImpl.swift in Sources */,
 				99D760DC2425823C00325677 /* CloudChannelsDataManager.swift in Sources */,
-				99229814243C8CA600491F71 /* MessagesDataManagerDelegate.swift in Sources */,
 				992297FA243B185D00491F71 /* StorageMessageModel.swift in Sources */,
 				99661657240BB17C00072082 /* MessagesViewController.swift in Sources */,
 				994B4AF0243108340005901B /* StorageProfileModel.swift in Sources */,
 				99D760D324254F6600325677 /* ChannelModel.swift in Sources */,
+				9917C7CB244382040052853E /* ChannelsDataManagerDelegate.swift in Sources */,
 				9991D3D5240C2CD000DF7A9E /* ConfigurableView.swift in Sources */,
 				99D760E02425827B00325677 /* CloudChannelsDataManagerImpl.swift in Sources */,
 				99D760E22425831100325677 /* CloudMessagesDataManager.swift in Sources */,
@@ -690,7 +698,8 @@
 				991DAC392439B7B3007AC80B /* P2PChat.xcdatamodel */,
 			);
 			currentVersion = 991DAC392439B7B3007AC80B /* P2PChat.xcdatamodel */;
-			path = P2PChat.xcdatamodeld;
+			name = P2PChat.xcdatamodeld;
+			path = "P2PChat/Supporting Files/P2PChat.xcdatamodeld";
 			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;
 		};

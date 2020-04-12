@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MessagesDataManagerDelegate {
+class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var newMessageView: UIView!
@@ -20,16 +20,12 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     private var channel: StorageChannelModel?
     private var messagesDataManager: MessagesDataManager?
     private var messagesController: NSFetchedResultsController<StorageMessageModel>?
+    private var messagesDataManagerDelegate: MessagesDataManagerDelegate?
     
     // MARK: Set model
     
     func setChannel(channel: StorageChannelModel) {
         self.channel = channel
-        if let channelId = channel.identifier {
-            let messagesDataManager = MessagesDataManagerImpl(for: channelId)
-            messagesDataManager.delegate = self
-            self.messagesDataManager = messagesDataManager
-        }
     }
     
     // MARK: Init navigation bar
@@ -45,16 +41,8 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         activityIndicator.stopAnimating()
     }
     
-    private func scrollToBottom() {
-        let messagesCount = tableView(messagesTableView, numberOfRowsInSection: 0)
-        if messagesCount == 0 { return }
-        let indexPath = IndexPath(row: messagesCount - 1, section: 0)
-        messagesTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-    }
-    
     private func updateTableView() {
         messagesTableView.reloadData()
-        scrollToBottom()
         showTableView()
     }
     
@@ -91,7 +79,18 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         updateTableView()
         messagesDataManager?.startMessagesListener()
     }
-
+    
+    // MARK: Set data manager
+      
+    private func setDataManager() {
+        if let channelId = channel?.identifier {
+            let messagesDataManager = MessagesDataManagerImpl(for: channelId)
+            messagesDataManagerDelegate = MessagesDataManagerDelegateImpl(tableView: messagesTableView)
+            messagesDataManager.delegate = messagesDataManagerDelegate
+            self.messagesDataManager = messagesDataManager
+        }
+    }
+    
     // MARK: Lyfecycle
     
     override func viewDidLoad() {
@@ -100,6 +99,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         activityIndicator.startAnimating()
         initNavigationBar()
         initTableView()
+        setDataManager()
         setLayoutCharacteristic()
         loadMessages()
 
@@ -123,43 +123,5 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MessageCell else { return UITableViewCell() }
         cell.configure(with: storageMessage)
         return cell
-    }
-    
-    // MARK: Fetched Results Controller
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        messagesTableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-            switch type {
-            case .insert:
-                if let indexPath = newIndexPath {
-                    self.messagesTableView.insertRows(at: [indexPath], with: .automatic)
-                }
-            case .update:
-                if let indexPath = indexPath {
-                    guard let storageMessage = controller.object(at: indexPath) as? StorageMessageModel else { return }
-                    guard let cell = self.messagesTableView.cellForRow(at: indexPath) as? MessageCell else { return }
-                    cell.configure(with: storageMessage)
-                }
-            case .move:
-                if let indexPath = indexPath {
-                    self.messagesTableView.deleteRows(at: [indexPath], with: .automatic)
-                }
-                if let newIndexPath = newIndexPath {
-                    self.messagesTableView.insertRows(at: [newIndexPath], with: .automatic)
-                }
-            case .delete:
-                if let indexPath = indexPath {
-                    self.messagesTableView.deleteRows(at: [indexPath], with: .automatic)
-                }
-            @unknown default: break
-            }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        messagesTableView.endUpdates()
-        scrollToBottom()
     }
 }
