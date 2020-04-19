@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UJZ-tL-ZbX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Network loader-->
+        <scene sceneID="sOT-Cp-O9Q">
+            <objects>
+                <collectionViewController id="hpq-ho-UbM" customClass="NetworkProfilePictureViewController" customModule="P2PChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="o6r-SB-PTV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="oiz-EQ-DVU">
+                            <size key="itemSize" width="133" height="131"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="mr2-Pk-6Pm">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkProfilePictureCell" id="JV6-Xu-JZG" customClass="NetworkProfilePictureCell" customModule="P2PChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="133" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTq-RP-fzl">
+                                    <rect key="frame" x="0.0" y="0.0" width="133" height="131"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-Zp-bgR">
+                                            <rect key="frame" x="0.0" y="0.0" width="133" height="131"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0wD-Zp-bgR" firstAttribute="leading" secondItem="gTq-RP-fzl" secondAttribute="leading" id="4hZ-E4-H6w"/>
+                                        <constraint firstItem="0wD-Zp-bgR" firstAttribute="top" secondItem="gTq-RP-fzl" secondAttribute="top" id="CtD-Gh-alp"/>
+                                        <constraint firstAttribute="trailing" secondItem="0wD-Zp-bgR" secondAttribute="trailing" id="cUb-nH-0xB"/>
+                                        <constraint firstAttribute="bottom" secondItem="0wD-Zp-bgR" secondAttribute="bottom" id="ebF-tX-ftq"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="133" height="131"/>
+                                <connections>
+                                    <outlet property="profilePictureImageView" destination="0wD-Zp-bgR" id="IW2-CB-zzr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="hpq-ho-UbM" id="Ue7-qq-dMh"/>
+                            <outlet property="delegate" destination="hpq-ho-UbM" id="odz-r8-0WX"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Network loader" id="sDw-Qk-sDH"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="mr2-Pk-6Pm" id="kEd-iP-fc4"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WA-Qk-cwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778.26086956521749" y="-46.205357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BV9-wV-Tcd">
+            <objects>
+                <navigationController id="UJZ-tL-ZbX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AhU-sK-11y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hpq-ho-UbM" kind="relationship" relationship="rootViewController" id="Nsb-cf-wxs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zeg-Ar-iW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1655" y="-45"/>
+        </scene>
+    </scenes>
+</document>
