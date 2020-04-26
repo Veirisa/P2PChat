@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ProfileDataManagerDelegate {
+class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ProfileDataManagerDelegate, NetworkProfilePictureViewControllerDelegate {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var changeAvatarButton: UIButton!
@@ -203,6 +203,17 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
         }
     }
     
+    private func openNetworkLoader() {
+        let profilePictureStoryboard = UIStoryboard(name: "NetworkProfilePicture", bundle: nil)
+        if let navController = profilePictureStoryboard.instantiateInitialViewController() as? UINavigationController,
+            let profilePictureViewController = navController.topViewController as? NetworkProfilePictureViewController
+        {
+            profilePictureViewController.delegate = self;
+            navController.modalPresentationStyle = .fullScreen
+            present(navController, animated: true, completion: nil)
+        }
+    }
+    
     private func setAvatar(_ image: UIImage) {
         avatarImageView.image = image
     }
@@ -224,7 +235,16 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePic
             changeAvatarAlert.dismiss(animated: true, completion: nil)
             self?.openCamera()
         }))
+        changeAvatarAlert.addAction(UIAlertAction(title: "Network", style: .default, handler: { [weak self] _ in
+            changeAvatarAlert.dismiss(animated: true, completion: nil)
+            self?.openNetworkLoader()
+        }))
         changeAvatarAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(changeAvatarAlert, animated: true, completion: nil)
+    }
+
+    func pictureDidChoosed(_ image: UIImage) {
+        avatarImageView.image = image
+        tryActivateSaveButton()
     }
 }
