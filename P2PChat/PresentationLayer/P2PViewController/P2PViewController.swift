@@ -32,12 +32,10 @@ class P2PViewController: UIViewController {
     // MARK: Keyboard observers
 
     @objc func keyboardWillShow(notification: NSNotification) {
-        print("keyboardWillShow")
         isKeyboardEnabled = true
     }
     
     @objc func keyboardWillHide(notification: NSNotification){
-        print("keyboardWillHide")
         isKeyboardEnabled = false
     }
     
@@ -88,7 +86,7 @@ class P2PViewController: UIViewController {
     @objc func showLogo(_ recognizer: UILongPressGestureRecognizer) {
         if recognizer.state == .began {
             isLogoAnimated = true
-            if let imageView = imageView {
+            if let imageView = imageView, !isKeyboardEnabled {
                 view.bringSubviewToFront(imageView)
                 doLogoAnimation(recognizer)
             }
