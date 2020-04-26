@@ -31,10 +31,10 @@
                                 <rect key="frame" x="0.0" y="752" width="414" height="110"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dE0-Uc-1QD" userLabel="New Message View">
-                                        <rect key="frame" x="20" y="20" width="318" height="70"/>
+                                        <rect key="frame" x="20" y="20" width="298" height="70"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jaj-nl-HZz">
-                                                <rect key="frame" x="10" y="10" width="298" height="50"/>
+                                                <rect key="frame" x="10" y="10" width="278" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="MpD-67-a3v"/>
@@ -42,6 +42,9 @@
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="71h-20-MRT" id="sy0-d6-X4p"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -53,7 +56,12 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-Ry-nJb">
-                                        <rect key="frame" x="358" y="20" width="36" height="70"/>
+                                        <rect key="frame" x="338" y="35" width="56" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="Yih-ka-5iT"/>
+                                            <constraint firstAttribute="height" constant="40" id="rz2-ig-dUE"/>
+                                        </constraints>
                                         <state key="normal" title="Send"/>
                                         <connections>
                                             <action selector="addNewMessage:" destination="71h-20-MRT" eventType="touchUpInside" id="c7K-Sa-sio"/>
@@ -64,10 +72,9 @@
                                 <constraints>
                                     <constraint firstItem="dE0-Uc-1QD" firstAttribute="top" secondItem="cdZ-sM-RZv" secondAttribute="top" constant="20" id="BAV-Vw-6k8"/>
                                     <constraint firstAttribute="trailing" secondItem="qp5-Ry-nJb" secondAttribute="trailing" constant="20" id="RU0-1T-DXK"/>
-                                    <constraint firstItem="qp5-Ry-nJb" firstAttribute="top" secondItem="cdZ-sM-RZv" secondAttribute="top" constant="20" id="S4u-cC-yJU"/>
+                                    <constraint firstItem="qp5-Ry-nJb" firstAttribute="centerY" secondItem="Jaj-nl-HZz" secondAttribute="centerY" id="g5Z-8n-m26"/>
                                     <constraint firstItem="dE0-Uc-1QD" firstAttribute="leading" secondItem="cdZ-sM-RZv" secondAttribute="leading" constant="20" id="had-X8-KIV"/>
                                     <constraint firstAttribute="bottom" secondItem="dE0-Uc-1QD" secondAttribute="bottom" constant="20" id="lRc-74-CxX"/>
-                                    <constraint firstAttribute="bottom" secondItem="qp5-Ry-nJb" secondAttribute="bottom" constant="20" id="u1B-At-gAp"/>
                                     <constraint firstItem="qp5-Ry-nJb" firstAttribute="leading" secondItem="dE0-Uc-1QD" secondAttribute="trailing" constant="20" id="yEe-wa-GyW"/>
                                 </constraints>
                             </view>

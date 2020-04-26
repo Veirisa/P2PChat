@@ -47,6 +47,7 @@
 		997E03CA23F89FEA00506D4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997E03C923F89FEA00506D4A /* Assets.xcassets */; };
 		997E03CD23F89FEA00506D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */; };
 		9991D3D5240C2CD000DF7A9E /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */; };
+		999B65DB2455FE6D000EE89E /* P2PViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B65DA2455FE6D000EE89E /* P2PViewController.swift */; };
 		99BCB4EB23FF31CA00316EF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */; };
 		99BCB4ED23FF31E400316EF7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BCB4EC23FF31E400316EF7 /* Profile.storyboard */; };
 		99D760D324254F6600325677 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760D224254F6600325677 /* ChannelModel.swift */; };
@@ -104,6 +105,7 @@
 		997E03CC23F89FEA00506D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		997E03CE23F89FEA00506D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9991D3D4240C2CD000DF7A9E /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
+		999B65DA2455FE6D000EE89E /* P2PViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PViewController.swift; sourceTree = "<group>"; };
 		99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		99BCB4EC23FF31E400316EF7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		99D760D224254F6600325677 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
@@ -313,6 +315,14 @@
 			path = P2PChat;
 			sourceTree = "<group>";
 		};
+		999B65D92455FE36000EE89E /* P2PViewController */ = {
+			isa = PBXGroup;
+			children = (
+				999B65DA2455FE6D000EE89E /* P2PViewController.swift */,
+			);
+			path = P2PViewController;
+			sourceTree = "<group>";
+		};
 		99BCB4E923FF319400316EF7 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +348,7 @@
 		99D760CA24254D5800325677 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				999B65D92455FE36000EE89E /* P2PViewController */,
 				9966164F240BB03600072082 /* ChannelsViewController */,
 				9966164E240BB01000072082 /* MessagesViewController */,
 				99BCB4E923FF319400316EF7 /* ProfileViewController */,
@@ -525,6 +536,7 @@
 				994B4AC62430EF3F0005901B /* StorageManagerImpl.swift in Sources */,
 				99D760DC2425823C00325677 /* CloudChannelsDataManager.swift in Sources */,
 				992297FA243B185D00491F71 /* StorageMessageModel.swift in Sources */,
+				999B65DB2455FE6D000EE89E /* P2PViewController.swift in Sources */,
 				99661657240BB17C00072082 /* MessagesViewController.swift in Sources */,
 				994B4AF0243108340005901B /* StorageProfileModel.swift in Sources */,
 				99D760D324254F6600325677 /* ChannelModel.swift in Sources */,
