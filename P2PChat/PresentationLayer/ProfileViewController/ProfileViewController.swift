@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ProfileDataManagerDelegate, NetworkProfilePictureViewControllerDelegate {
+class ProfileViewController: P2PViewController, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ProfileDataManagerDelegate, NetworkProfilePictureViewControllerDelegate {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var changeAvatarButton: UIButton!

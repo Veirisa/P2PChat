@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CoreData
 
-class ChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ProfileDataManagerDelegate  {
+class ChannelsViewController: P2PViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ProfileDataManagerDelegate  {
     
     @IBOutlet var channelsTableView: UITableView!
     @IBOutlet weak var newChannelTextField: UITextField!
@@ -122,6 +122,13 @@ class ChannelsViewController: UIViewController, UITableViewDelegate, UITableView
         setDataManagers()
         readProfile()
         loadChannels()
+    }
+    
+    // MARK: Text field
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     // MARK: Table view

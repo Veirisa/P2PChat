@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class MessagesViewController: P2PViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var newMessageView: UIView!
@@ -56,6 +56,8 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: Set layout characteristics
     
     private func setLayoutCharacteristic() {
+        newMessageButton.layer.cornerRadius = 10
+        newMessageButton.clipsToBounds = true
         newMessageView.layer.cornerRadius = 10
         newMessageView.clipsToBounds = true
     }
@@ -67,10 +69,11 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
             let messageContent = newMessageTextView.text,
             let messagesDataManager = messagesDataManager
             else { return }
-        if messageContent != ""{
+        if messageContent != "" {
             let profile = ProfileModel.shared
             messagesDataManager.addNew(message: MessageModel(content: messageContent, created: Date(), senderId: profile.identifier, senderName: profile.fullName))
             newMessageTextView.text = ""
+            newMessageButton.isEnabled = false
         }
     }
     
@@ -95,6 +98,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newMessageButton.isEnabled = false
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         initNavigationBar()
@@ -123,5 +127,38 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MessageCell else { return UITableViewCell() }
         cell.configure(with: storageMessage)
         return cell
+    }
+}
+
+extension MessagesViewController: UITextViewDelegate {
+    
+    private func animationSendButtonStateChange(isEnabled: Bool) {
+        self.newMessageButton.isEnabled = isEnabled
+        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+            self.newMessageButton.bounds.size.width *= 1.15;
+            self.newMessageButton.bounds.size.height *= 1.15;
+        }, completion: nil)
+        UIView.animate(withDuration: 0.25, delay: 0.25, options: [], animations: {
+            self.newMessageButton.bounds.size.width /= 1.15;
+            self.newMessageButton.bounds.size.height /= 1.15;
+        }, completion: nil)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if let prevText = textView.text,
+            let textRange = Range(range, in: prevText) {
+            let updatedText = prevText.replacingCharacters(in: textRange,
+                                                       with: text)
+            if updatedText == "" {
+                if newMessageButton.isEnabled {
+                     animationSendButtonStateChange(isEnabled: false)
+                }
+            } else {
+                if !newMessageButton.isEnabled {
+                    animationSendButtonStateChange(isEnabled: true)
+                }
+            }
+        }
+        return true
     }
 }
