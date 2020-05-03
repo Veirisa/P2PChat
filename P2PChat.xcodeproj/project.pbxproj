@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		574535EDF31E38A8A09B3C66 /* Pods_P2PChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */; };
+		614EAA24B18B2AB880F4585A /* libPods-P2PChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8666F4C8919933DBAF8E09 /* libPods-P2PChatTests.a */; };
 		990B6FD8244CEB2E00FE70BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 990B6FD7244CEB2E00FE70BA /* GoogleService-Info.plist */; };
 		9917C7C124437E960052853E /* ChannelsDataManagerDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917C7C024437E960052853E /* ChannelsDataManagerDelegateImpl.swift */; };
 		9917C7C9244381D50052853E /* MessagesDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917C7C8244381D50052853E /* MessagesDataManagerDelegate.swift */; };
@@ -20,6 +21,9 @@
 		99229802243B1C2800491F71 /* MessagesDataManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229801243B1C2800491F71 /* MessagesDataManagerImpl.swift */; };
 		99229805243B1C6900491F71 /* ChannelsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229804243B1C6900491F71 /* ChannelsDataManager.swift */; };
 		99229809243B1C8A00491F71 /* ChannelsDataManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99229808243B1C8A00491F71 /* ChannelsDataManagerImpl.swift */; };
+		9933EF8B245F476A0025BE8C /* ChannelsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9933EF8A245F476A0025BE8C /* ChannelsHandler.swift */; };
+		9933EF8D245F47820025BE8C /* ChannelsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9933EF8C245F47820025BE8C /* ChannelsHandlerImpl.swift */; };
+		9933EF90245F49420025BE8C /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9933EF8F245F49420025BE8C /* ChatModel.swift */; };
 		994B4AC62430EF3F0005901B /* StorageManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AC52430EF3F0005901B /* StorageManagerImpl.swift */; };
 		994B4AC82430EF540005901B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AC72430EF540005901B /* StorageManager.swift */; };
 		994B4AF0243108340005901B /* StorageProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994B4AEF243108340005901B /* StorageProfileModel.swift */; };
@@ -50,6 +54,7 @@
 		999B65DB2455FE6D000EE89E /* P2PViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B65DA2455FE6D000EE89E /* P2PViewController.swift */; };
 		99BCB4EB23FF31CA00316EF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */; };
 		99BCB4ED23FF31E400316EF7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BCB4EC23FF31E400316EF7 /* Profile.storyboard */; };
+		99BDA1CA245F585A00F1889B /* ChannelsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BDA1C9245F585A00F1889B /* ChannelsHandlerTests.swift */; };
 		99D760D324254F6600325677 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760D224254F6600325677 /* ChannelModel.swift */; };
 		99D760D724254F9C00325677 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760D624254F9C00325677 /* MessageModel.swift */; };
 		99D760DC2425823C00325677 /* CloudChannelsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760DB2425823C00325677 /* CloudChannelsDataManager.swift */; };
@@ -62,8 +67,20 @@
 		99D760EF2427D2A200325677 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D760EE2427D2A200325677 /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9933EF9A245F4E620025BE8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 997E03B523F89FE800506D4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 997E03BC23F89FE900506D4A;
+			remoteInfo = P2PChat;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.release.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.release.xcconfig"; sourceTree = "<group>"; };
+		4F417FBC09F4896A9F0D8AAF /* Pods-P2PChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChatTests.release.xcconfig"; path = "Target Support Files/Pods-P2PChatTests/Pods-P2PChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		5C70F587CC6097A8BD37834F /* Pods-P2PChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChatTests.debug.xcconfig"; path = "Target Support Files/Pods-P2PChatTests/Pods-P2PChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		990B6FD7244CEB2E00FE70BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9917C7C024437E960052853E /* ChannelsDataManagerDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerDelegateImpl.swift; sourceTree = "<group>"; };
 		9917C7C8244381D50052853E /* MessagesDataManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +93,11 @@
 		99229801243B1C2800491F71 /* MessagesDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataManagerImpl.swift; sourceTree = "<group>"; };
 		99229804243B1C6900491F71 /* ChannelsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManager.swift; sourceTree = "<group>"; };
 		99229808243B1C8A00491F71 /* ChannelsDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsDataManagerImpl.swift; sourceTree = "<group>"; };
+		9933EF8A245F476A0025BE8C /* ChannelsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsHandler.swift; sourceTree = "<group>"; };
+		9933EF8C245F47820025BE8C /* ChannelsHandlerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsHandlerImpl.swift; sourceTree = "<group>"; };
+		9933EF8F245F49420025BE8C /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		9933EF95245F4E620025BE8C /* P2PChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P2PChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9933EF99245F4E620025BE8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		994B4AC52430EF3F0005901B /* StorageManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerImpl.swift; sourceTree = "<group>"; };
 		994B4AC72430EF540005901B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		994B4AEF243108340005901B /* StorageProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProfileModel.swift; sourceTree = "<group>"; };
@@ -108,6 +130,7 @@
 		999B65DA2455FE6D000EE89E /* P2PViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PViewController.swift; sourceTree = "<group>"; };
 		99BCB4EA23FF31CA00316EF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		99BCB4EC23FF31E400316EF7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		99BDA1C9245F585A00F1889B /* ChannelsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsHandlerTests.swift; sourceTree = "<group>"; };
 		99D760D224254F6600325677 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		99D760D624254F9C00325677 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		99D760DB2425823C00325677 /* CloudChannelsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudChannelsDataManager.swift; sourceTree = "<group>"; };
@@ -118,11 +141,20 @@
 		99D760E52425837700325677 /* CloudMessagesDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMessagesDataManagerImpl.swift; sourceTree = "<group>"; };
 		99D760E724258D4700325677 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		99D760EE2427D2A200325677 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		9F8666F4C8919933DBAF8E09 /* libPods-P2PChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-P2PChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63715F66510EB20D619009F /* Pods-P2PChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PChat.debug.xcconfig"; path = "Target Support Files/Pods-P2PChat/Pods-P2PChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9933EF92245F4E620025BE8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614EAA24B18B2AB880F4585A /* libPods-P2PChatTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		997E03BA23F89FE900506D4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A867127B97C0CD695A4CFBBE /* Pods_P2PChat.framework */,
+				9F8666F4C8919933DBAF8E09 /* libPods-P2PChatTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,6 +234,32 @@
 				995FE8BA244CE33A00FC41F1 /* ImageDataModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		9933EF89245F47430025BE8C /* ChannelsHandler */ = {
+			isa = PBXGroup;
+			children = (
+				9933EF8A245F476A0025BE8C /* ChannelsHandler.swift */,
+				9933EF8C245F47820025BE8C /* ChannelsHandlerImpl.swift */,
+			);
+			path = ChannelsHandler;
+			sourceTree = "<group>";
+		};
+		9933EF8E245F492F0025BE8C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				9933EF8F245F49420025BE8C /* ChatModel.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		9933EF96245F4E620025BE8C /* P2PChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				9933EF99245F4E620025BE8C /* Info.plist */,
+				99BDA1C9245F585A00F1889B /* ChannelsHandlerTests.swift */,
+			);
+			path = P2PChatTests;
 			sourceTree = "<group>";
 		};
 		994B4AC42430EF0B0005901B /* StorageManager */ = {
@@ -287,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				997E03BF23F89FE900506D4A /* P2PChat */,
+				9933EF96245F4E620025BE8C /* P2PChatTests */,
 				997E03BE23F89FE900506D4A /* Products */,
 				A476A722E041DF9AD8CF798D /* Pods */,
 				2353B9E025620E5F9127166B /* Frameworks */,
@@ -297,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				997E03BD23F89FE900506D4A /* P2PChat.app */,
+				9933EF95245F4E620025BE8C /* P2PChatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +420,7 @@
 		99D760CB24254DDF00325677 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9933EF8E245F492F0025BE8C /* Chat */,
 				99229812243C857700491F71 /* Profile */,
 				99229811243C856F00491F71 /* Message */,
 				99229810243C856500491F71 /* Channel */,
@@ -369,6 +431,7 @@
 		99D760CD24254E8B00325677 /* ChannelsDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				9933EF89245F47430025BE8C /* ChannelsHandler */,
 				992297FB243B198500491F71 /* CloudChannelsDataManager */,
 				99229804243B1C6900491F71 /* ChannelsDataManager.swift */,
 				99229808243B1C8A00491F71 /* ChannelsDataManagerImpl.swift */,
@@ -393,6 +456,8 @@
 			children = (
 				D63715F66510EB20D619009F /* Pods-P2PChat.debug.xcconfig */,
 				0414B1F3EB721B67CB547F16 /* Pods-P2PChat.release.xcconfig */,
+				5C70F587CC6097A8BD37834F /* Pods-P2PChatTests.debug.xcconfig */,
+				4F417FBC09F4896A9F0D8AAF /* Pods-P2PChatTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -400,6 +465,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9933EF94245F4E620025BE8C /* P2PChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9933EF9C245F4E620025BE8C /* Build configuration list for PBXNativeTarget "P2PChatTests" */;
+			buildPhases = (
+				2E5424766D0B79571B7DE28B /* [CP] Check Pods Manifest.lock */,
+				9933EF91245F4E620025BE8C /* Sources */,
+				9933EF92245F4E620025BE8C /* Frameworks */,
+				9933EF93245F4E620025BE8C /* Resources */,
+				7360E2B147E4F5B91C942654 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9933EF9B245F4E620025BE8C /* PBXTargetDependency */,
+			);
+			name = P2PChatTests;
+			productName = P2PChatTests;
+			productReference = 9933EF95245F4E620025BE8C /* P2PChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		997E03BC23F89FE900506D4A /* P2PChat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 997E03D123F89FEA00506D4A /* Build configuration list for PBXNativeTarget "P2PChat" */;
@@ -425,10 +510,14 @@
 		997E03B523F89FE800506D4A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Veirisa;
 				TargetAttributes = {
+					9933EF94245F4E620025BE8C = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 997E03BC23F89FE900506D4A;
+					};
 					997E03BC23F89FE900506D4A = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -448,11 +537,19 @@
 			projectRoot = "";
 			targets = (
 				997E03BC23F89FE900506D4A /* P2PChat */,
+				9933EF94245F4E620025BE8C /* P2PChatTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9933EF93245F4E620025BE8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		997E03BB23F89FE900506D4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,6 +569,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E5424766D0B79571B7DE28B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-P2PChatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		31C15E177CCCB3E374169D82 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -487,6 +606,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-P2PChat/Pods-P2PChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7360E2B147E4F5B91C942654 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-P2PChatTests/Pods-P2PChatTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-P2PChatTests/Pods-P2PChatTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-P2PChatTests/Pods-P2PChatTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD7DB9D6A1762825D3E46A9F /* [CP] Check Pods Manifest.lock */ = {
@@ -514,6 +650,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9933EF91245F4E620025BE8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99BDA1CA245F585A00F1889B /* ChannelsHandlerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		997E03B923F89FE900506D4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,12 +673,15 @@
 				99229809243B1C8A00491F71 /* ChannelsDataManagerImpl.swift in Sources */,
 				995FE8C1244CE43E00FC41F1 /* NetworkProfilePictureCell.swift in Sources */,
 				99D760D724254F9C00325677 /* MessageModel.swift in Sources */,
+				9933EF90245F49420025BE8C /* ChatModel.swift in Sources */,
 				9917C7C9244381D50052853E /* MessagesDataManagerDelegate.swift in Sources */,
 				995FE8C3244CE55E00FC41F1 /* NetworkProfileViewControllerDelegate.swift in Sources */,
 				9917C7C124437E960052853E /* ChannelsDataManagerDelegateImpl.swift in Sources */,
+				9933EF8B245F476A0025BE8C /* ChannelsHandler.swift in Sources */,
 				99229802243B1C2800491F71 /* MessagesDataManagerImpl.swift in Sources */,
 				994B4AC62430EF3F0005901B /* StorageManagerImpl.swift in Sources */,
 				99D760DC2425823C00325677 /* CloudChannelsDataManager.swift in Sources */,
+				9933EF8D245F47820025BE8C /* ChannelsHandlerImpl.swift in Sources */,
 				992297FA243B185D00491F71 /* StorageMessageModel.swift in Sources */,
 				999B65DB2455FE6D000EE89E /* P2PViewController.swift in Sources */,
 				99661657240BB17C00072082 /* MessagesViewController.swift in Sources */,
@@ -566,6 +713,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9933EF9B245F4E620025BE8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 997E03BC23F89FE900506D4A /* P2PChat */;
+			targetProxy = 9933EF9A245F4E620025BE8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		997E03CB23F89FEA00506D4A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -578,6 +733,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9933EF9D245F4E620025BE8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C70F587CC6097A8BD37834F /* Pods-P2PChatTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = P2PChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.P2PChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P2PChat.app/P2PChat";
+			};
+			name = Debug;
+		};
+		9933EF9E245F4E620025BE8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F417FBC09F4896A9F0D8AAF /* Pods-P2PChatTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = P2PChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.P2PChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P2PChat.app/P2PChat";
+			};
+			name = Release;
+		};
 		997E03CF23F89FEA00506D4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -735,6 +932,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9933EF9C245F4E620025BE8C /* Build configuration list for PBXNativeTarget "P2PChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9933EF9D245F4E620025BE8C /* Debug */,
+				9933EF9E245F4E620025BE8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		997E03B823F89FE800506D4A /* Build configuration list for PBXProject "P2PChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

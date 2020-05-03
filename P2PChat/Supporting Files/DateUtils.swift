@@ -12,11 +12,15 @@ class DateUtils {
     
     static let recentlyInterval = 10 * 60
     
-    static func isRecentlyDate(_ date: Date?) -> Bool {
+    static func isRecentlyDate(_ date: Date?, deviation: Int) -> Bool {
         guard let date = date else { return false }
         let currentTime = Date().timeIntervalSince1970
         let channelTime = date.timeIntervalSince1970
-        return Int(currentTime - channelTime) < recentlyInterval
+        return Int(currentTime - channelTime) < recentlyInterval + deviation
+    }
+    
+    static func isRecentlyDate(_ date: Date?) -> Bool {
+        return isRecentlyDate(date, deviation: 0)
     }
     
     static func handleDate(_ date: Date?) -> String {
@@ -37,11 +41,9 @@ class DateUtils {
         return format.string(from: date)
     }
     
-    /*
     static func compareByDate(_ dateFst: Date?, _ dateSnd: Date?) -> Bool {
-        guard let dateFst = dateFst else { return true }
         guard let dateSnd = dateSnd else { return false }
+        guard let dateFst = dateFst else { return true }
         return dateFst.timeIntervalSince1970 < dateSnd.timeIntervalSince1970
-    }*/
-
+    }
 }
